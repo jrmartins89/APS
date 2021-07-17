@@ -5,7 +5,7 @@ import PySimpleGUI as sg
 class TelaPrincipal(Tela):
     def __init__(self, controlador_principal):
         self.controlador_principal = controlador_principal
-        self.__window = None
+        self.__window_principal = None
         self.__hide = False
 
     def init_components(self):
@@ -16,16 +16,13 @@ class TelaPrincipal(Tela):
             [sg.Button('Fazer login no jogo')],
             [sg.Button('Criar um usuário')]
             ]
-        self.__window = sg.Window('Menu Principal').layout(layout_menu_principal)
+        self.__window_principal = sg.Window('Menu Principal').layout(layout_menu_principal)
 
     def open(self):
         self.init_components()
-        button, values = self.__window.read()
+        button, values = self.__window_principal.read()
         self.close()
         return button, values
 
     def close(self):
-        self.__window.close()
-
-    def show_message(self, titulo: str, mensagem: str):
-        sg.Popup(titulo, mensagem)
+        self.__window_principal.close()

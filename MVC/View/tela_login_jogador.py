@@ -14,12 +14,20 @@ class TelaLoginJogador(Tela):
                                     [sg.InputText('*Apelido', key='apelido')],
                                     [sg.InputText('*Senha (Apenas números) ', key='senha')],
                                     [sg.Submit()]
-                                  ]
+                               ]
 
         self.__window_login = sg.Window('Login no Jogo').Layout(layout_login_jogador)
 
     def close(self):
         self.__window_login.Close()
+
+    def open_tela_login(self):
+        self.init_components()
+        button, values = self.__window_login.Read()
+        return button, values
+
+    def show_message(self, titulo: str, mensagem: str):
+        sg.Popup(titulo, mensagem)
 
 """
      esse método recebe uma lista como parametro, percorre ela e exibe os elementos da mesma

@@ -11,8 +11,9 @@ class TelaCadastroJogador(Tela):
         sg.ChangeLookAndFeel('SandyBeach')
         layout_cadastro_jogador = [
                                     [sg.Text('Cadastro de um novo jogador')],
-                                    [sg.InputText('*Apelido', key='apelido')],
-                                    [sg.InputText('*Senha (Apenas números) ', key='senha')],
+                                    [sg.InputText('Nome', key='nome')],
+                                    [sg.InputText('Apelido', key='apelido')],
+                                    [sg.InputText('Senha (Apenas números)', key='senha')],
                                     [sg.Submit()]
                                   ]
 
@@ -21,6 +22,13 @@ class TelaCadastroJogador(Tela):
     def close(self):
         self.__window_cadastro.Close()
 
+    def open_tela_cadastro(self):
+        self.init_components()
+        button, values = self.__window_cadastro.Read()
+        return button, values
+
+    def show_message(self, titulo: str, mensagem: str):
+        sg.Popup(titulo, mensagem)
 """
      esse método recebe uma lista como parametro, percorre ela e exibe os elementos da mesma
     def exibir_menu_opcoes(self, lista: []):
