@@ -1,5 +1,5 @@
 from MVC.View.tela import Tela
-import PySimpleGUI as sG
+import PySimpleGUI as sg
 
 
 class TelaCadastroJogador(Tela):
@@ -8,27 +8,26 @@ class TelaCadastroJogador(Tela):
         self.__window_cadastro = None
 
     def init_components(self):
-        sG.ChangeLookAndFeel('SandyBeach')
+        sg.ChangeLookAndFeel('SandyBeach')
         layout_cadastro_jogador = [
-                                    [sG.Text('Cadastro de um novo jogador')],
-                                    [sG.InputText('Nome', key='nome')],
-                                    [sG.InputText('Apelido', key='apelido')],
-                                    [sG.InputText('Senha (Apenas números)', key='senha')],
-                                    [sG.Submit()]
+                                    [sg.Text('Cadastro de um novo jogador')],
+                                    [sg.InputText('Nome', key='nome')],
+                                    [sg.InputText('Apelido', key='apelido')],
+                                    [sg.InputText('Senha (Apenas números)', key='senha')],
+                                    [sg.Submit()]
                                   ]
 
-        self.__window_cadastro = sG.Window('Cadastro de Jogador').Layout(layout_cadastro_jogador)
+        self.__window_cadastro = sg.Window('Cadastro de Jogador').Layout(layout_cadastro_jogador)
 
     def close(self):
         self.__window_cadastro.Close()
 
     def open_tela_cadastro(self):
         self.init_components()
-        button, values = self.__window_cadastro.Read()
-        return button, values
+        return self.__window_cadastro.Read()
 
     def show_message(self, titulo: str, mensagem: str):
-        sG.Popup(titulo, mensagem)
+        sg.Popup(titulo, mensagem)
 
 
 """

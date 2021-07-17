@@ -1,5 +1,5 @@
 from MVC.View.tela import Tela
-import PySimpleGUI as sG
+import PySimpleGUI as sg
 
 
 class TelaPrincipal(Tela):
@@ -9,14 +9,14 @@ class TelaPrincipal(Tela):
         self.__hide = False
 
     def init_components(self):
-        sG.ChangeLookAndFeel('SandyBeach')
+        sg.ChangeLookAndFeel('SandyBeach')
         layout_menu_principal = [
-            [sG.Text('----- Bem Vindo à Fúria dos Panteões! -----')],
-            [sG.Text('Clique na opção desejada: ')],
-            [sG.Button('Fazer login no jogo')],
-            [sG.Button('Criar um novo usuário')]
+            [sg.Text('----- Bem Vindo à Fúria dos Panteões! -----')],
+            [sg.Text('Clique na opção desejada: ')],
+            [sg.Button('Fazer login no jogo')],
+            [sg.Button('Criar um novo usuário')]
         ]
-        self.__window_principal = sG.Window('Tela principal - Fúria dos Panteões').layout(layout_menu_principal)
+        self.__window_principal = sg.Window('Tela principal - Fúria dos Panteões').layout(layout_menu_principal)
 
     def open(self):
         self.init_components()
@@ -26,3 +26,6 @@ class TelaPrincipal(Tela):
 
     def close(self):
         self.__window_principal.close()
+
+    def show_message(self, titulo: str, mensagem: str):
+        sg.Popup(titulo, mensagem)

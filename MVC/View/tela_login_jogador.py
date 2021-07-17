@@ -1,5 +1,5 @@
 from MVC.View.tela import Tela
-import PySimpleGUI as sG
+import PySimpleGUI as sg
 
 
 class TelaLoginJogador(Tela):
@@ -8,15 +8,15 @@ class TelaLoginJogador(Tela):
         self.__window_login = None
 
     def init_components(self):
-        sG.ChangeLookAndFeel('SandyBeach')
+        sg.ChangeLookAndFeel('SandyBeach')
         layout_login_jogador = [
-                                    [sG.Text('Faça o login no jogo!')],
-                                    [sG.InputText('*Apelido', key='apelido')],
-                                    [sG.InputText('*Senha (Apenas números) ', key='senha')],
-                                    [sG.Submit()]
+                                    [sg.Text('Faça o login no jogo!')],
+                                    [sg.InputText('*Apelido', key='apelido')],
+                                    [sg.InputText('*Senha (Apenas números) ', key='senha')],
+                                    [sg.Submit()]
                                ]
 
-        self.__window_login = sG.Window('Login no Jogo').Layout(layout_login_jogador)
+        self.__window_login = sg.Window('Login no Jogo').Layout(layout_login_jogador)
 
     def close(self):
         self.__window_login.Close()
@@ -27,7 +27,7 @@ class TelaLoginJogador(Tela):
         return button, values
 
     def show_message(self, titulo: str, mensagem: str):
-        sG.Popup(titulo, mensagem)
+        sg.Popup(titulo, mensagem)
 
 
 """

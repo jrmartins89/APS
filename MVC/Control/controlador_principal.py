@@ -15,9 +15,9 @@ class ControladorPrincipal:
     def abre_tela(self):
         while True:
             button, values = self.__tela.open()
-            if button == 'Criar usuário':
+            if button == 'Criar um novo usuário':
                 self.__controlador_jogador.abre_tela_cadastro()
-            elif button == 'Fazer logir no jogo':
+            elif button == 'Fazer login no jogo':
                 self.__controlador_jogador.abre_tela_login()
 
     @property

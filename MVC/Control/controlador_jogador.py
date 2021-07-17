@@ -12,15 +12,15 @@ class ControladorJogador:
 
     def abre_tela_login(self):
         button, values = self.__tela_login.open_tela_login()
-
         self.fazer_login(values['Apelido'], values['senha'])
         if button == 'Voltar ao menu principal':
             self.__controlador_principal.abre_tela()
 
     def abre_tela_cadastro(self):
         button, values = self.__tela_cadastro.open_tela_cadastro()
-
         self.incluir_usuario(values['Nome'], values['Apelido'], values['Senha'])
+        if button == 'Voltar ao menu principal':
+            self.__controlador_jogador.abre_tela()
 
     def incluir_usuario(self, nome: str, apelido: str, senha: int):
         try:
