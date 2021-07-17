@@ -1,5 +1,5 @@
 from MVC.View.tela import Tela
-import PySimpleGUI as sg
+import PySimpleGUI as sG
 
 
 class TelaCadastroJogador(Tela):
@@ -8,16 +8,16 @@ class TelaCadastroJogador(Tela):
         self.__window_cadastro = None
 
     def init_components(self):
-        sg.ChangeLookAndFeel('SandyBeach')
+        sG.ChangeLookAndFeel('SandyBeach')
         layout_cadastro_jogador = [
-                                    [sg.Text('Cadastro de um novo jogador')],
-                                    [sg.InputText('Nome', key='nome')],
-                                    [sg.InputText('Apelido', key='apelido')],
-                                    [sg.InputText('Senha (Apenas números)', key='senha')],
-                                    [sg.Submit()]
+                                    [sG.Text('Cadastro de um novo jogador')],
+                                    [sG.InputText('Nome', key='nome')],
+                                    [sG.InputText('Apelido', key='apelido')],
+                                    [sG.InputText('Senha (Apenas números)', key='senha')],
+                                    [sG.Submit()]
                                   ]
 
-        self.__window_cadastro = sg.Window('Cadastro de Jogador').Layout(layout_cadastro_jogador)
+        self.__window_cadastro = sG.Window('Cadastro de Jogador').Layout(layout_cadastro_jogador)
 
     def close(self):
         self.__window_cadastro.Close()
@@ -28,7 +28,9 @@ class TelaCadastroJogador(Tela):
         return button, values
 
     def show_message(self, titulo: str, mensagem: str):
-        sg.Popup(titulo, mensagem)
+        sG.Popup(titulo, mensagem)
+
+
 """
      esse método recebe uma lista como parametro, percorre ela e exibe os elementos da mesma
     def exibir_menu_opcoes(self, lista: []):

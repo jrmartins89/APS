@@ -2,15 +2,12 @@ from MVC.Model.jogador import Jogador
 
 
 class JogadorHumano(Jogador):
-    def __init__(self, nome, apelido, senha, da_vez, baralho, vitorias, derrotas, id_jogador):
-        self.baralho = baralho
+    def __init__(self, nome, apelido, senha, id_jogador):
+        super().__init__(False, None, 0, 0)
+        self.__nome = nome
+        self.__apelido = apelido
         self.__senha = senha
         self.__id_jogador = id_jogador
-        self.__apelido = apelido
-        self.__vitorias = vitorias
-        self.__derrotas = derrotas
-        self.__da_vez = da_vez
-        self.__nome = nome
 
     @property
     def nome(self):
@@ -71,9 +68,9 @@ class JogadorHumano(Jogador):
         return self.__id_jogador
 
     @id_jogador.setter
-    def id(self, id_jogador: str):
+    def id_jogador(self, id_jogador: str):
         if isinstance(id_jogador, str):
-            self.__id_jogador = id
+            self.__id_jogador = id_jogador
 
     @property
     def apelido(self):
