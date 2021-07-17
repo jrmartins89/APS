@@ -1,23 +1,22 @@
-from view.tela import Tela
+from MVC.View.tela import Tela
 import PySimpleGUI as sg
 
 
-class TelaBiblioteca(Tela):
-    def __init__(self, controlador_biblioteca):
-        self.controlador_biblioteca = controlador_biblioteca
+class TelaPrincipal(Tela):
+    def __init__(self, controlador_principal):
+        self.controlador_principal = controlador_principal
         self.__window = None
         self.__hide = False
 
     def init_components(self):
         sg.ChangeLookAndFeel('SandyBeach')
-        layout_menu_biblioteca = [
-            [sg.Text('----- Bem Vindo à biblioteca gamer! -----')],
+        layout_menu_principal = [
+            [sg.Text('----- Bem Vindo à Fúria dos Panteões! -----')],
             [sg.Text('Clique na opção desejada: ')],
-            [sg.Button('Menu de Usuários')],
-            [sg.Button('Menu de Jogos')],
-            [sg.Button('Menu de Aquisições')]
+            [sg.Button('Fazer login no jogo')],
+            [sg.Button('Criar um usuário')]
             ]
-        self.__window = sg.Window('Menu da Biblioteca').layout(layout_menu_biblioteca)
+        self.__window = sg.Window('Menu Principal').layout(layout_menu_principal)
 
     def open(self):
         self.init_components()
