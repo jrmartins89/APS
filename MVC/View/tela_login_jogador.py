@@ -12,7 +12,7 @@ class TelaLoginJogador(Tela):
         layout_login_jogador = [
                                     [sg.Text('Faça o login no jogo!')],
                                     [sg.InputText('*Apelido', key='apelido')],
-                                    [sg.InputText('*Senha (Apenas números) ', key='senha')],
+                                    [sg.InputText('*Senha ', key='senha')],
                                     [sg.Submit()],
                                     [sg.Button('Menu Principal')]
                                ]

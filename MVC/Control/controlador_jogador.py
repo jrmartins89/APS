@@ -66,6 +66,8 @@ class ControladorJogador:
                     if (linha['apelido'] == apelido) and (linha['senha'] == senha_fornecida):
                         self.__tela_login.show_message("SUCESSO", "Login Realizado com sucesso!")
                         login_inexistente = False
+                if apelido == '*Apelido':
+                    break
                 if login_inexistente:
                     self.__tela_login.show_message("ERRO", "Erro de Login!")
                     break
