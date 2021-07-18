@@ -11,6 +11,7 @@ class ControladorJogador:
         self.__tela_cadastro = TelaCadastroJogador(self)
         self.__tela_login = TelaLoginJogador(self)
         self.__jogadores = []
+        self.__idjogador =0
 
     def abre_tela_login(self):
         button, values = self.__tela_login.open_tela_login()
@@ -24,6 +25,9 @@ class ControladorJogador:
         if button == 'Menu Principal':
             self.__controlador_principal.abre_tela()
 
+    def gerar_id(self):
+        return
+
     def incluir_usuario(self, nome: str, apelido: str, senha: str):
         cabecalho = ['nome', 'apelido', 'senha', 'da_vez', 'vitorias', 'derrotas', 'id_jogador']
         try:
@@ -32,7 +36,8 @@ class ControladorJogador:
                     raise Exception()
         except Exception:
             self.__tela_cadastro.show_message("Usuários", "Usuário já cadastrado no jogo")
-        self.__jogadores.append(JogadorHumano(nome, apelido, senha, False, 0, 0, 1))
+        self.__idjogador = self.__idjogador+1
+        self.__jogadores.append(JogadorHumano(nome, apelido, senha, False, 0, 0, self.__idjogador))
 
         with open('usuarios.csv', 'wt', encoding='UTF-8', newline='') as f:
             for jogador in self.__jogadores:
