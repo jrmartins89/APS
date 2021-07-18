@@ -1,7 +1,7 @@
 from MVC.Model.jogador_humano import JogadorHumano
 from MVC.View.tela_login_jogador import TelaLoginJogador
 from MVC.View.tela_cadastro_jogador import TelaCadastroJogador
-
+import csv
 
 class ControladorJogador:
     def __init__(self, controlador_principal):
@@ -23,13 +23,27 @@ class ControladorJogador:
             self.__controlador_principal.abre_tela()
 
     def incluir_usuario(self, nome: str, apelido: str, senha: int):
+        cabecalho = ['nome', 'apelido', 'senha', 'da_vez', 'vitorias', 'derrotas', 'id_jogador']
         try:
             for jogador in self.__jogadores:
                 if jogador.apelido == apelido:
                     raise Exception()
         except Exception:
-            self.__tela_cadastro.show_message("Usuários", "Usuário já existente no sistema")
-        self.__jogadores.append(JogadorHumano(nome, apelido, senha, False, None, 0, 0, 1))
+            self.__tela_cadastro.show_message("Usuários", "Usuário já cadastrado no jogo")
+        self.__jogadores.append(JogadorHumano(nome, apelido, senha, False, 0, 0, 1))
+        with open('usuarios.csv', 'w', encoding='UTF8', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow(cabecalho)
+            for jogador in self.__jogadores:
+                writer.writerow([
+                    jogador.nome,
+                    jogador.apelido,
+                    jogador.senha,
+                    jogador.da_vez,
+                    jogador.vitorias,
+                    jogador.derrotas,
+                    jogador.id_jogador])
+
         self.__tela_cadastro.show_message("CADASTRO DE USUÁRIOS", "Usuário cadastrado com sucesso!")
 
     def fazer_login(self, apelido: str, senha: int):

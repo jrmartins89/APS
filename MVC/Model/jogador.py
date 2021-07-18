@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 
 class Jogador(ABC):
     @abstractmethod
-    def __init__(self, da_vez, baralho, vitorias, derrotas):
+    def __init__(self, da_vez, vitorias, derrotas):
         pass
 
     def mostra_lista_str(self, lista: []):

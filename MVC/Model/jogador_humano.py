@@ -2,12 +2,11 @@ from MVC.Model.jogador import Jogador
 
 
 class JogadorHumano(Jogador):
-    def __init__(self, nome, apelido, senha, da_vez, baralho, vitorias, derrotas, id_jogador):
+    def __init__(self, nome, apelido, senha, da_vez, vitorias, derrotas, id_jogador):
         self.__nome = nome
         self.__apelido = apelido
         self.__senha = senha
         self.__da_vez = da_vez
-        self.__baralho = baralho
         self.__vitorias = vitorias
         self.__derrotas = derrotas
         self.__id_jogador = id_jogador

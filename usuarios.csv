@@ -1,1 +1,3 @@
-nome,apelido,senha,da_vez,baralho,vitorias,derrotas,id_jogador
+nome,apelido,senha,da_vez,vitorias,derrotas,id_jogador
+jose,jose,1234,False,0,0,1
+ribamar,ribamar,1234,False,0,0,1
