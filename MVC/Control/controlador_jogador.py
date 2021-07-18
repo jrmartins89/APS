@@ -36,6 +36,8 @@ class ControladorJogador:
 
         with open('usuarios.csv', 'wt', encoding='UTF-8', newline='') as f:
             for jogador in self.__jogadores:
+                if len(jogador.senha) == 32:
+                    continue
                 hash_senha = jogador.senha.encode(encoding='UTF-8', errors='strict')
                 hash_senha = hashlib.md5(hash_senha).hexdigest()
                 jogador.senha = hash_senha
@@ -55,16 +57,17 @@ class ControladorJogador:
         self.__tela_cadastro.show_message("CADASTRO DE USUÁRIOS", "Usuário cadastrado com sucesso!")
 
     def fazer_login(self, apelido: str, senha: str):
-        verifica = True
+        login_inexistente = True
         with open('usuarios.csv', mode='r') as arquivo_csv:
             senha_fornecida = senha.encode(encoding='UTF-8', errors='strict')
             senha_fornecida = hashlib.md5(senha_fornecida).hexdigest()
             print(senha_fornecida)
             leitor_csv = csv.DictReader(arquivo_csv)
-            while verifica:
+            while login_inexistente:
                 for linha in leitor_csv:
                     if (linha['apelido'] == apelido) and (linha['senha'] == senha_fornecida):
                         self.__tela_login.show_message("SUCESSO", "Login Realizado com sucesso!")
-                verifica = False
-            if linha['senha'] != senha_fornecida:
-                self.__tela_login.show_message("ERRO", "Senha incorreta")
+                        login_inexistente = False
+                if login_inexistente:
+                    self.__tela_login.show_message("ERRO", "Erro de Login!")
+                    break
