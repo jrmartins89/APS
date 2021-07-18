@@ -30,6 +30,7 @@ class TelaLoginJogador(Tela):
 
     def show_message(self, titulo: str, mensagem: str):
         sg.Popup(titulo, mensagem)
+        self.close()
 
 
 """

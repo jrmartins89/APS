@@ -33,12 +33,13 @@ class ControladorJogador:
         except Exception:
             self.__tela_cadastro.show_message("Usuários", "Usuário já cadastrado no jogo")
         self.__jogadores.append(JogadorHumano(nome, apelido, senha, False, 0, 0, 1))
-        for jogador in self.__jogadores:
-            hash = jogador.senha.encode(encoding='UTF-8', errors='strict')
-            hash = hashlib.md5(hash).hexdigest()
-            jogador.senha = hash
 
-        with open('usuarios.csv', 'w', encoding='UTF-8', newline='') as f:
+        with open('usuarios.csv', 'wt', encoding='UTF-8', newline='') as f:
+            for jogador in self.__jogadores:
+                hash_senha = jogador.senha.encode(encoding='UTF-8', errors='strict')
+                hash_senha = hashlib.md5(hash_senha).hexdigest()
+                jogador.senha = hash_senha
+            print(hash_senha)
             writer = csv.writer(f)
             writer.writerow(cabecalho)
             for jogador in self.__jogadores:
@@ -53,9 +54,17 @@ class ControladorJogador:
 
         self.__tela_cadastro.show_message("CADASTRO DE USUÁRIOS", "Usuário cadastrado com sucesso!")
 
-    def fazer_login(self, apelido: str, senha: int):
+    def fazer_login(self, apelido: str, senha: str):
+        verifica = True
         with open('usuarios.csv', mode='r') as arquivo_csv:
+            senha_fornecida = senha.encode(encoding='UTF-8', errors='strict')
+            senha_fornecida = hashlib.md5(senha_fornecida).hexdigest()
+            print(senha_fornecida)
             leitor_csv = csv.DictReader(arquivo_csv)
-            for linha in leitor_csv:
-                if (linha['apelido'] == apelido) & (linha['senha'] == senha):
-                    self.__tela_login.show_message("LOGIN", "Login Realizado com sucesso!")
+            while verifica:
+                for linha in leitor_csv:
+                    if (linha['apelido'] == apelido) and (linha['senha'] == senha_fornecida):
+                        self.__tela_login.show_message("SUCESSO", "Login Realizado com sucesso!")
+                verifica = False
+            if linha['senha'] != senha_fornecida:
+                self.__tela_login.show_message("ERRO", "Senha incorreta")
