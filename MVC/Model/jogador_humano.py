@@ -30,15 +30,6 @@ class JogadorHumano(Jogador):
             self.__da_vez = da_vez
 
     @property
-    def baralho(self):
-        return self.__baralho
-
-    @baralho.setter
-    def baralho(self, baralho: baralho):
-        if isinstance(baralho, baralho):
-            self.__baralho = baralho
-
-    @property
     def vitorias(self):
         return self.__vitorias
 
@@ -61,8 +52,8 @@ class JogadorHumano(Jogador):
         return self.__senha
 
     @senha.setter
-    def senha(self, senha: int):
-        if isinstance(senha, int):
+    def senha(self, senha: str):
+        if isinstance(senha, str):
             self.__senha = senha
 
     @property

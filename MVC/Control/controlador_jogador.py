@@ -2,6 +2,7 @@ from MVC.Model.jogador_humano import JogadorHumano
 from MVC.View.tela_login_jogador import TelaLoginJogador
 from MVC.View.tela_cadastro_jogador import TelaCadastroJogador
 import csv
+import hashlib
 
 
 class ControladorJogador:
@@ -23,7 +24,7 @@ class ControladorJogador:
         if button == 'Menu Principal':
             self.__controlador_principal.abre_tela()
 
-    def incluir_usuario(self, nome: str, apelido: str, senha: int):
+    def incluir_usuario(self, nome: str, apelido: str, senha: str):
         cabecalho = ['nome', 'apelido', 'senha', 'da_vez', 'vitorias', 'derrotas', 'id_jogador']
         try:
             for jogador in self.__jogadores:
@@ -32,7 +33,12 @@ class ControladorJogador:
         except Exception:
             self.__tela_cadastro.show_message("Usuários", "Usuário já cadastrado no jogo")
         self.__jogadores.append(JogadorHumano(nome, apelido, senha, False, 0, 0, 1))
-        with open('usuarios.csv', 'w', encoding='UTF8', newline='') as f:
+        for jogador in self.__jogadores:
+            hash = jogador.senha.encode(encoding='UTF-8', errors='strict')
+            hash = hashlib.md5(hash).hexdigest()
+            jogador.senha = hash
+
+        with open('usuarios.csv', 'w', encoding='UTF-8', newline='') as f:
             writer = csv.writer(f)
             writer.writerow(cabecalho)
             for jogador in self.__jogadores:

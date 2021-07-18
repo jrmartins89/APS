@@ -13,7 +13,7 @@ class TelaCadastroJogador(Tela):
                                     [sg.Text('Cadastro de um novo jogador')],
                                     [sg.InputText('Nome', key='nome')],
                                     [sg.InputText('Apelido', key='apelido')],
-                                    [sg.InputText('Senha (Apenas números)', key='senha')],
+                                    [sg.InputText('Senha', key='senha')],
                                     [sg.Submit()],
                                     [sg.Button('Menu Principal')]
                                   ]
