@@ -3,6 +3,7 @@ from MVC.View.tela_login_jogador import TelaLoginJogador
 from MVC.View.tela_cadastro_jogador import TelaCadastroJogador
 import csv
 
+
 class ControladorJogador:
     def __init__(self, controlador_principal):
         self.__controlador_principal = controlador_principal
@@ -47,6 +48,8 @@ class ControladorJogador:
         self.__tela_cadastro.show_message("CADASTRO DE USUÁRIOS", "Usuário cadastrado com sucesso!")
 
     def fazer_login(self, apelido: str, senha: int):
-        for jogador in self.__jogadores:
-            if (jogador.apelido == apelido) & (jogador.senha == senha):
-                self.__tela_login.show_message("LOGIN", "Login Realizado com sucesso!")
+        with open('usuarios.csv', mode='r') as arquivo_csv:
+            leitor_csv = csv.DictReader(arquivo_csv)
+            for linha in leitor_csv:
+                if (linha['apelido'] == apelido) & (linha['senha'] == senha):
+                    self.__tela_login.show_message("LOGIN", "Login Realizado com sucesso!")
