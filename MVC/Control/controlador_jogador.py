@@ -12,26 +12,27 @@ class ControladorJogador:
 
     def abre_tela_login(self):
         button, values = self.__tela_login.open_tela_login()
-        self.fazer_login(values['Apelido'], values['senha'])
-        if button == 'Voltar ao menu principal':
+        self.fazer_login(values['apelido'], values['senha'])
+        if button == 'Menu Principal':
             self.__controlador_principal.abre_tela()
 
     def abre_tela_cadastro(self):
         button, values = self.__tela_cadastro.open_tela_cadastro()
-        self.incluir_usuario(values['Nome'], values['Apelido'], values['Senha'])
-        if button == 'Voltar ao menu principal':
-            self.__controlador_jogador.abre_tela()
+        self.incluir_usuario(values['nome'], values['apelido'], values['senha'])
+        if button == 'Menu Principal':
+            self.__controlador_principal.abre_tela()
 
     def incluir_usuario(self, nome: str, apelido: str, senha: int):
         try:
             for jogador in self.__jogadores:
-              if jogador.apelido == apelido:
-                raise Exception()
+                if jogador.apelido == apelido:
+                    raise Exception()
         except Exception:
             self.__tela_cadastro.show_message("Usuários", "Usuário já existente no sistema")
-        else:
-            self.__jogadores.append(JogadorHumano(nome, apelido, senha, False, None, 0, 0, 1))
-            self.__tela_cadastro.show_message("CADASTRO DE USUÁRIOS", "Usuário cadastrado com sucesso!")
+        self.__jogadores.append(JogadorHumano(nome, apelido, senha, False, None, 0, 0, 1))
+        self.__tela_cadastro.show_message("CADASTRO DE USUÁRIOS", "Usuário cadastrado com sucesso!")
 
     def fazer_login(self, apelido: str, senha: int):
-        button, values = self.__tela_login.open_tela_login()
+        for jogador in self.__jogadores:
+            if (jogador.apelido == apelido) & (jogador.senha == senha):
+                self.__tela_login.show_message("LOGIN", "Login Realizado com sucesso!")

@@ -14,7 +14,8 @@ class TelaCadastroJogador(Tela):
                                     [sg.InputText('Nome', key='nome')],
                                     [sg.InputText('Apelido', key='apelido')],
                                     [sg.InputText('Senha (Apenas números)', key='senha')],
-                                    [sg.Submit()]
+                                    [sg.Submit()],
+                                    [sg.Button('Menu Principal')]
                                   ]
 
         self.__window_cadastro = sg.Window('Cadastro de Jogador').Layout(layout_cadastro_jogador)
@@ -24,7 +25,9 @@ class TelaCadastroJogador(Tela):
 
     def open_tela_cadastro(self):
         self.init_components()
-        return self.__window_cadastro.Read()
+        button, values = self.__window_cadastro.Read()
+        self.close()
+        return button, values
 
     def show_message(self, titulo: str, mensagem: str):
         sg.Popup(titulo, mensagem)
