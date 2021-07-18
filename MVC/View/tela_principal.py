@@ -11,10 +11,14 @@ class TelaPrincipal(Tela):
     def init_components(self):
         sg.ChangeLookAndFeel('SandyBeach')
         layout_menu_principal = [
-            [sg.Text('----- Bem Vindo à Fúria dos Panteões! -----')],
+            [sg.Text('----- Embarque nessa jornada e enfrente a fúria divina! -----')],
             [sg.Text('Clique na opção desejada: ')],
             [sg.Button('Fazer login no jogo')],
-            [sg.Button('Criar um novo usuário')]
+            [sg.Button('Criar um novo usuário')],
+            [sg.Button('Iniciar uma partida')],
+            [sg.Button('Acessar glossário')],
+            [sg.Button('Acessar Regras')],
+            [sg.Button('Acessar Ranking')]
         ]
         self.__window_principal = sg.Window('Tela principal - Fúria dos Panteões').layout(layout_menu_principal)
 
