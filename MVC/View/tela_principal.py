@@ -1,6 +1,9 @@
 from MVC.View.tela import Tela
 import PySimpleGUI as sg
 
+sg.theme('DarkAmber')
+font = ('Arial', '11', 'bold underline')
+justification = 'center'
 
 class TelaPrincipal(Tela):
     def __init__(self, controlador_principal):
@@ -9,16 +12,16 @@ class TelaPrincipal(Tela):
         self.__hide = False
 
     def init_components(self):
-        sg.ChangeLookAndFeel('SandyBeach')
+        #sg.ChangeLookAndFeel('DarkAmber')
         layout_menu_principal = [
-            [sg.Text('----- Embarque nessa jornada e enfrente a fúria divina! -----')],
+            [sg.Text('FÚRIA DOS PANTEÕES', font=(font, 20))],
             [sg.Text('Clique na opção desejada: ')],
-            [sg.Button('Fazer login no jogo')],
-            [sg.Button('Criar um novo usuário')],
+            [sg.Button('Log in')],
+            [sg.Button('Criar usuário')],
             [sg.Button('Iniciar uma partida')],
-            [sg.Button('Acessar glossário')],
-            [sg.Button('Acessar Regras')],
-            [sg.Button('Acessar Ranking')]
+            [sg.Button('Glossário')],
+            [sg.Button('Regras')],
+            [sg.Button('Ranking')]
         ]
         self.__window_principal = sg.Window('Tela principal - Fúria dos Panteões').layout(layout_menu_principal)
 

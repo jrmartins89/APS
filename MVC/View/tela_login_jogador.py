@@ -1,6 +1,9 @@
 from MVC.View.tela import Tela
 import PySimpleGUI as sg
 
+sg.theme('DarkAmber')
+font = ('Arial', '11', 'bold underline')
+justification = 'center'
 
 class TelaLoginJogador(Tela):
     def __init__(self, controlador_jogador):
@@ -8,13 +11,13 @@ class TelaLoginJogador(Tela):
         self.__window_login = None
 
     def init_components(self):
-        sg.ChangeLookAndFeel('SandyBeach')
         layout_login_jogador = [
-                                    [sg.Text('Faça o login no jogo!')],
+                                    [sg.Text('Faça o login!')],
                                     [sg.InputText('*Apelido', key='apelido')],
                                     [sg.InputText('*Senha ', key='senha')],
-                                    [sg.Submit()],
-                                    [sg.Button('Menu Principal')]
+                                    [sg.OK()],
+                                    [sg.Text('Não possui uma conta ainda?', key = '-text-')],
+                                    [sg.Button('Voltar')]
                                ]
 
         self.__window_login = sg.Window('Login no Jogo').Layout(layout_login_jogador)
