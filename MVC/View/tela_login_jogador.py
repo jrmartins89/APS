@@ -17,7 +17,7 @@ class TelaLoginJogador(Tela):
                                     [sG.InputText('*Apelido', key='apelido')],
                                     [sG.InputText('*Senha ', key='senha')],
                                     [sG.OK()],
-                                    [sG.Text('Não possui uma conta ainda?', key ='-text-')],
+                                    [sG.Text('Não possui uma conta ainda?', key='-text-')],
                                     [sG.Button('Voltar')]
                                ]
 
