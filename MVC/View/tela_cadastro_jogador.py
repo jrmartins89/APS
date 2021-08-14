@@ -14,9 +14,12 @@ class TelaCadastroJogador(Tela):
     def init_components(self):
         layout_cadastro_jogador = [
                                     [sG.Text('Cadastro de Jogador')],
-                                    [sG.InputText('*Nome', key='nome')],
-                                    [sG.InputText('*Apelido', key='apelido')],
-                                    [sG.InputText('*Senha', key='senha')],
+                                    [sG.Text('Nome')],
+                                    [sG.InputText('', key='nome')],
+                                    [sG.Text('*Apelido')],
+                                    [sG.InputText('', key='apelido')],
+                                    [sG.Text('*Senha')],
+                                    [sG.InputText('', key='senha')],
                                     [sG.OK()],
                                     [sG.Button('Menu Principal')]
                                   ]

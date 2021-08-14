@@ -14,10 +14,11 @@ class TelaLoginJogador(Tela):
     def init_components(self):
         layout_login_jogador = [
                                     [sG.Text('Faça o login!')],
-                                    [sG.InputText('*Apelido', key='apelido')],
-                                    [sG.InputText('*Senha ', key='senha')],
+                                    [sG.Text('*Apelido')],
+                                    [sG.InputText('', key='apelido')],
+                                    [sG.Text('*Senha')],
+                                    [sG.InputText('', key='senha')],
                                     [sG.OK()],
-                                    [sG.Text('Não possui uma conta ainda?', key='-text-')],
                                     [sG.Button('Voltar')]
                                ]
 
