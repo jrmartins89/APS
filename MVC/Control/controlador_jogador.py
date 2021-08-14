@@ -3,6 +3,7 @@ from MVC.View.tela_login_jogador import TelaLoginJogador
 from MVC.View.tela_cadastro_jogador import TelaCadastroJogador
 import csv
 import hashlib
+import os
 
 
 class ControladorJogador:
@@ -43,7 +44,7 @@ class ControladorJogador:
             return self.__tela_cadastro.show_message("Usuários", "Usuário já cadastrado.")
         self.__idjogador = self.__idjogador + 1
         self.__jogadores.append(JogadorHumano(nome, apelido, senha, False, 0, 0, self.__idjogador))
-        with open('usuarios.csv', 'wt', encoding='UTF-8', newline='') as f:
+        with open('usuarios.csv', 'a', encoding='UTF-8', newline='') as f:
             for jogador in self.__jogadores:
                 if len(jogador.senha) == 32:
                     continue
@@ -51,7 +52,8 @@ class ControladorJogador:
                 hash_senha = hashlib.md5(hash_senha).hexdigest()
                 jogador.senha = hash_senha
             writer = csv.writer(f)
-            writer.writerow(cabecalho)
+            if os.stat('usuarios.csv').st_size == 0:
+                writer.writerow(cabecalho)
             for jogador in self.__jogadores:
                 writer.writerow([
                     jogador.nome,
