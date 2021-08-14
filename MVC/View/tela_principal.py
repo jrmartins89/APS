@@ -14,7 +14,6 @@ class TelaPrincipal(Tela):
         self.__hide = False
 
     def init_components(self):
-        #sg.ChangeLookAndFeel('DarkAmber')
         layout_menu_inicial = [
             [sG.Text('FÚRIA DOS PANTEÕES', font=(font, 20))],
             [sG.Text('Clique na opção desejada: ')],
@@ -24,7 +23,6 @@ class TelaPrincipal(Tela):
         self.__window_inicial = sG.Window('Tela incial - Fúria dos Panteões').layout(layout_menu_inicial)
 
     def init_full_components(self):
-        #sg.ChangeLookAndFeel('DarkAmber')
         layout_menu_principal = [
             [sG.Text('FÚRIA DOS PANTEÕES', font=(font, 20))],
             [sG.Text('Clique na opção desejada: ')],
