@@ -1,9 +1,10 @@
 from MVC.View.tela import Tela
-import PySimpleGUI as sg
+import PySimpleGUI as sG
 
-sg.theme('DarkAmber')
+sG.theme('DarkAmber')
 font = ('Arial', '11', 'bold underline')
 justification = 'center'
+
 
 class TelaPrincipal(Tela):
     def __init__(self, controlador_principal):
@@ -15,23 +16,23 @@ class TelaPrincipal(Tela):
     def init_components(self):
         #sg.ChangeLookAndFeel('DarkAmber')
         layout_menu_inicial = [
-            [sg.Text('FÚRIA DOS PANTEÕES', font=(font, 20))],
-            [sg.Text('Clique na opção desejada: ')],
-            [sg.Button('Log in')],
-            [sg.Button('Criar usuário')],
+            [sG.Text('FÚRIA DOS PANTEÕES', font=(font, 20))],
+            [sG.Text('Clique na opção desejada: ')],
+            [sG.Button('Log in')],
+            [sG.Button('Criar usuário')],
         ]
-        self.__window_inicial = sg.Window('Tela incial - Fúria dos Panteões').layout(layout_menu_inicial)
+        self.__window_inicial = sG.Window('Tela incial - Fúria dos Panteões').layout(layout_menu_inicial)
 
     def init_full_components(self):
         #sg.ChangeLookAndFeel('DarkAmber')
         layout_menu_principal = [
-            [sg.Text('FÚRIA DOS PANTEÕES', font=(font, 20))],
-            [sg.Text('Clique na opção desejada: ')],
-            [sg.Button('Iniciar uma partida')],
-            [sg.Button('Voltar')]
+            [sG.Text('FÚRIA DOS PANTEÕES', font=(font, 20))],
+            [sG.Text('Clique na opção desejada: ')],
+            [sG.Button('Iniciar uma partida')],
+            [sG.Button('Voltar')]
 
         ]
-        self.__window_principal = sg.Window('Tela principal - Fúria dos Panteões').layout(layout_menu_principal)
+        self.__window_principal = sG.Window('Tela principal - Fúria dos Panteões').layout(layout_menu_principal)
 
     def open_inicial(self):
         self.init_components()
@@ -52,4 +53,4 @@ class TelaPrincipal(Tela):
         self.__window_inicial.close()
 
     def show_message(self, titulo: str, mensagem: str):
-        sg.Popup(titulo, mensagem)
+        sG.Popup(titulo, mensagem)
