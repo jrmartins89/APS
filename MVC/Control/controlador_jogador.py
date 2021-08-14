@@ -17,12 +17,12 @@ class ControladorJogador:
         button, values = self.__tela_login.open_tela_login()
         self.fazer_login(values['apelido'], values['senha'])
         if button == 'Voltar':
-            self.__controlador_principal.abre_tela()
+            self.__controlador_principal.abre_tela_inicial()
 
     def abre_tela_cadastro(self):
         button, values = self.__tela_cadastro.open_tela_cadastro()
         if button == 'Menu Principal':
-            self.__controlador_principal.abre_tela()
+            self.__controlador_principal.abre_tela_inicial()
         self.incluir_usuario(values['nome'], values['apelido'], values['senha'])
 
     def gerar_id(self):
