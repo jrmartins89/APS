@@ -10,7 +10,8 @@ class ControladorPrincipal:
         self.__tela_inicio_partida = TelaInicioPartida(self)
         self.__controlador_jogador = ControladorJogador(self)
 
-    # para chamar a tela de jogadores é necessário pensar que o controlador da biblioteca conhece o controlador de usuários.
+    # para chamar a tela de jogadores é necessário pensar que o controlador da
+    # biblioteca conhece o controlador de usuários.
 
     # criando um laço de repeticao
 
