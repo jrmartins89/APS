@@ -19,6 +19,10 @@ class ControladorJogador:
         self.fazer_login(values['apelido'], values['senha'])
         if button == 'Voltar':
             self.__controlador_principal.abre_tela_inicial()
+        if (values['apelido'] == '') and (values['senha'] == ''):
+            return False
+        else:
+            return True
 
     def abre_tela_cadastro(self):
         button, values = self.__tela_cadastro.open_tela_cadastro()
