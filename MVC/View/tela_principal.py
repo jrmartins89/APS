@@ -2,8 +2,6 @@ from MVC.View.tela import Tela
 import PySimpleGUI as sG
 
 sG.theme('DarkAmber')
-font = ('Arial', '11', 'bold underline')
-justification = 'center'
 
 
 class TelaPrincipal(Tela):
@@ -15,22 +13,29 @@ class TelaPrincipal(Tela):
 
     def init_components(self):
         layout_menu_inicial = [
-            [sG.Text('FÚRIA DOS PANTEÕES', font=(font, 20))],
-            [sG.Text('Clique na opção desejada: ')],
-            [sG.Button('Log in')],
+            [sG.Text('FÚRIA DOS PANTEÕES', font=('Times', 30))],
+            [sG.Text('Clique na opção desejada', font=('Times', 20))],
+            [sG.Button('Login')],
             [sG.Button('Criar usuário')],
         ]
-        self.__window_inicial = sG.Window('Tela incial - Fúria dos Panteões').layout(layout_menu_inicial)
+        self.__window_inicial = sG.Window('Tela incial - Fúria dos Panteões',
+                                          font=('Times', 15),
+                                          size=(500, 200),
+                                          element_justification='c').layout(layout_menu_inicial)
 
     def init_full_components(self):
         layout_menu_principal = [
-            [sG.Text('FÚRIA DOS PANTEÕES', font=(font, 20))],
-            [sG.Text('Clique na opção desejada: ')],
+            [sG.Text('FÚRIA DOS PANTEÕES', font=('times', 20))],
+            [sG.Text('Clique na opção desejada', font=('Times', 14), justification='center')],
             [sG.Button('Iniciar uma partida')],
             [sG.Button('Voltar')]
 
         ]
-        self.__window_principal = sG.Window('Tela principal - Fúria dos Panteões').layout(layout_menu_principal)
+        self.__window_principal = sG.Window('Tela principal - Fúria dos Panteões',
+                                            font=('Times', 15),
+                                            size=(400, 180),
+                                            element_justification='c'
+                                            ).layout(layout_menu_principal)
 
     def open_inicial(self):
         self.init_components()
