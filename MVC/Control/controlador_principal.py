@@ -1,7 +1,7 @@
 from MVC.View.tela_principal import TelaPrincipal
 from MVC.View.tela_inicio_partida import TelaInicioPartida
 from MVC.Control.controlador_jogador import ControladorJogador
-
+from MVC.Control.controlador_partida import ControladorInicioPartida
 
 class ControladorPrincipal:
 
@@ -9,6 +9,7 @@ class ControladorPrincipal:
         self.__tela = TelaPrincipal(self)
         self.__tela_inicio_partida = TelaInicioPartida(self)
         self.__controlador_jogador = ControladorJogador(self)
+        self.__controlador_inicio_partida = ControladorInicioPartida(self)
 
     # para chamar a tela de jogadores é necessário pensar que o controlador da
     # biblioteca conhece o controlador de usuários.
@@ -29,7 +30,7 @@ class ControladorPrincipal:
         while True:
             button, values = self.__tela.open_principal()
             if button == 'Iniciar uma partida':
-                self.__tela_inicio_partida.open_tela_inicio_partida()
+                self.__controlador_inicio_partida.abre_tela_inicio_partida()
             elif button == 'Voltar':
                 self.__tela.open_inicial()
 
