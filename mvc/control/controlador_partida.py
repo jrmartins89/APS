@@ -1,4 +1,4 @@
-from MVC.View.tela_inicio_partida import TelaInicioPartida
+from mvc.view.tela_inicio_partida import TelaInicioPartida
 
 
 class ControladorInicioPartida:
@@ -8,5 +8,6 @@ class ControladorInicioPartida:
 
     def abre_tela_inicio_partida(self):
         button, values = self.__tela_inicio_partida.open_tela_inicio_partida()
+        print(values)
         if button == 'Voltar':
             self.__controlador_principal.abre_tela_inicial()

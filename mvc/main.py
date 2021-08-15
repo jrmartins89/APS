@@ -1,4 +1,4 @@
-from MVC.Control.controlador_principal import ControladorPrincipal
+from mvc.control.controlador_principal import ControladorPrincipal
 
 if __name__ == "__main__":
     controlador_principal = ControladorPrincipal()

@@ -1,6 +1,6 @@
-from MVC.Model.jogador_humano import JogadorHumano
-from MVC.View.tela_login_jogador import TelaLoginJogador
-from MVC.View.tela_cadastro_jogador import TelaCadastroJogador
+from mvc.model.jogador_humano import JogadorHumano
+from mvc.view.tela_login_jogador import TelaLoginJogador
+from mvc.view.tela_cadastro_jogador import TelaCadastroJogador
 import csv
 import hashlib
 import os

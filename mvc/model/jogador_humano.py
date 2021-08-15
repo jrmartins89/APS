@@ -1,4 +1,4 @@
-from MVC.Model.jogador import Jogador
+from mvc.model.jogador import Jogador
 
 
 class JogadorHumano(Jogador):

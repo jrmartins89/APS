@@ -1,7 +1,7 @@
-from MVC.View.tela_principal import TelaPrincipal
-from MVC.View.tela_inicio_partida import TelaInicioPartida
-from MVC.Control.controlador_jogador import ControladorJogador
-from MVC.Control.controlador_partida import ControladorInicioPartida
+from mvc.view.tela_principal import TelaPrincipal
+from mvc.view.tela_inicio_partida import TelaInicioPartida
+from mvc.control.controlador_jogador import ControladorJogador
+from mvc.control.controlador_partida import ControladorInicioPartida
 
 class ControladorPrincipal:
 

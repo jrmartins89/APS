@@ -1,4 +1,4 @@
-from MVC.View.tela import Tela
+from mvc.view.tela import Tela
 import PySimpleGUI as sG
 
 sG.theme('DarkAmber')
