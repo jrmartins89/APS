@@ -23,8 +23,8 @@ class ControladorPrincipal:
                 self.__controlador_jogador.abre_tela_cadastro()
             elif button == 'Login':
                 fez_login = self.__controlador_jogador.abre_tela_login()
-            if fez_login:
-                self.abre_tela_principal()
+                if fez_login:
+                    self.abre_tela_principal()
 
     def abre_tela_principal(self):
         while True:
