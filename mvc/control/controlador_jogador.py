@@ -78,7 +78,7 @@ class ControladorJogador:
             while login_inexistente:
                 for linha in leitor_csv:
                     if (linha['apelido'] == apelido) and (linha['senha'] == senha_fornecida):
-                        self.__tela_login.show_message("SUCESSO", "Login Realizado com sucesso!")
+                        self.__tela_login.show_message("SUCESSO!", apelido + " logado!")
                         login_inexistente = False
                 if apelido == '':
                     break
