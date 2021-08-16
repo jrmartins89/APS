@@ -1,4 +1,4 @@
-class Jogo:
+class Partida:
     def __init__(self, jogador_1: str, jogador_2: str):
         self.__jogador_1 = jogador_1
         self.__jogador_2 = jogador_2
