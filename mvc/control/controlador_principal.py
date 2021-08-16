@@ -1,15 +1,15 @@
 from mvc.view.tela_principal import TelaPrincipal
-from mvc.view.tela_inicio_partida import TelaInicioPartida
+from mvc.view.tela_inicio_selecao_partida import TelaInicioSelecaoPartida
 from mvc.control.controlador_jogador import ControladorJogador
-from mvc.control.controlador_partida import ControladorInicioPartida
+from mvc.control.controlador_selecao_partida import ControladorInicioSelecaoPartida
 
 class ControladorPrincipal:
 
     def __init__(self):
         self.__tela = TelaPrincipal(self)
-        self.__tela_inicio_partida = TelaInicioPartida(self)
+        self.__tela_inicio_partida = TelaInicioSelecaoPartida(self)
         self.__controlador_jogador = ControladorJogador(self)
-        self.__controlador_inicio_partida = ControladorInicioPartida(self)
+        self.__controlador_inicio_partida = ControladorInicioSelecaoPartida(self)
 
     # para chamar a tela de jogadores é necessário pensar que o controlador da
     # biblioteca conhece o controlador de usuários.
@@ -22,8 +22,9 @@ class ControladorPrincipal:
             if button == 'Criar usuário':
                 self.__controlador_jogador.abre_tela_cadastro()
             elif button == 'Login':
-                fez_login = self.__controlador_jogador.abre_tela_login()
-                if fez_login:
+                jogador_logado = self.__controlador_jogador.abre_tela_login()
+                if jogador_logado:
+                    print(jogador_logado)
                     self.abre_tela_principal()
 
     def abre_tela_principal(self):

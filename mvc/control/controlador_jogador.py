@@ -22,7 +22,7 @@ class ControladorJogador:
         if (values['apelido'] == '') and (values['senha'] == ''):
             return False
         else:
-            return True
+            return values['apelido']
 
     def abre_tela_cadastro(self):
         button, values = self.__tela_cadastro.open_tela_cadastro()

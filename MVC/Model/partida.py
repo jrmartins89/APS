@@ -1,8 +1,8 @@
 class Jogo:
-    def __init__(self, jogador_1: str, oponente: str, baralho: str):
+    def __init__(self, jogador_1: str, jogador_2: str):
         self.__jogador_1 = jogador_1
-        self.__jogador_2 = oponente
-        self.__baralho = baralho
+        self.__jogador_2 = jogador_2
+        self.__baralho = None
 
     @property
     def jogador_1(self):
