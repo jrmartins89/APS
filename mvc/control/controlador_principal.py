@@ -23,16 +23,15 @@ class ControladorPrincipal:
             if button == 'Criar usuário':
                 self.__controlador_jogador.abre_tela_cadastro()
             elif button == 'Login':
-                primeiro_jogador = self.__controlador_jogador.abre_tela_login()
-                if primeiro_jogador:
-                    print(primeiro_jogador)
-                    self.abre_tela_principal()
+                jogador_1 = self.__controlador_jogador.abre_tela_login()
+                if jogador_1:
+                    self.abre_tela_principal(jogador_1)
 
-    def abre_tela_principal(self):
+    def abre_tela_principal(self, jogador_1):
         while True:
             button, values = self.__tela.open_principal()
             if button == 'Iniciar uma partida':
-                self.__controlador_inicio_partida.abre_tela_inicio_partida()
+                self.__controlador_inicio_partida.abre_tela_inicio_partida(jogador_1)
             elif button == 'Voltar':
                 self.__tela.open_inicial()
 
