@@ -14,7 +14,7 @@ class TelaInicioSelecaoPartida(Tela):
         layout_inicio_selecao_partida = [
                                     [sG.Text('Inicio da Partida', font=('Times', 30))],
                                     [sG.Text('Selecione o oponente', font=('Times', 14))],
-                                    [sG.Combo(['humano', 'computador'], default_value='computador', key='oponente')],
+                                    [sG.Combo(['Humano', 'Computador'], default_value='Computador', key='oponente')],
                                     [sG.Text('Selecione o baralho', font=('Times', 14))],
                                     [sG.Combo(['Nordico', 'Egipcio', 'Grego'], default_value='Grego', key='baralho')],
                                     [sG.Text('Confirme a seleção', font=('Times', 14))],
