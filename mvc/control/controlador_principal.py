@@ -10,7 +10,7 @@ class ControladorPrincipal:
         self.__tela = TelaPrincipal(self)
         self.__tela_inicio_partida = TelaInicioSelecaoPartida(self)
         self.__controlador_jogador = ControladorJogador(self)
-        self.__controlador_inicio_partida = ControladorInicioSelecaoPartida(self)
+        self.__controlador_selecao_partida = ControladorInicioSelecaoPartida(self)
 
     # para chamar a tela de jogadores é necessário pensar que o controlador da
     # biblioteca conhece o controlador de usuários.
@@ -31,7 +31,7 @@ class ControladorPrincipal:
         while True:
             button, values = self.__tela.open_principal()
             if button == 'Iniciar uma partida':
-                self.__controlador_inicio_partida.abre_tela_inicio_partida(jogador_1)
+                self.__controlador_selecao_partida.abre_tela_inicio_partida(jogador_1)
             elif button == 'Voltar':
                 self.__tela.open_inicial()
 
