@@ -3,6 +3,7 @@ from mvc.view.tela_inicio_selecao_partida import TelaInicioSelecaoPartida
 from mvc.control.controlador_jogador import ControladorJogador
 from mvc.control.controlador_selecao_partida import ControladorInicioSelecaoPartida
 
+
 class ControladorPrincipal:
 
     def __init__(self):
@@ -22,9 +23,9 @@ class ControladorPrincipal:
             if button == 'Criar usuário':
                 self.__controlador_jogador.abre_tela_cadastro()
             elif button == 'Login':
-                jogador_logado = self.__controlador_jogador.abre_tela_login()
-                if jogador_logado:
-                    print(jogador_logado)
+                primeiro_jogador = self.__controlador_jogador.abre_tela_login()
+                if primeiro_jogador:
+                    print(primeiro_jogador)
                     self.abre_tela_principal()
 
     def abre_tela_principal(self):
