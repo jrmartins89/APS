@@ -1,6 +1,7 @@
 class InteligenciaArtificial:
-    def __init__(self, inteligencia_artificial):
-        self.__inteligencia_artificial = inteligencia_artificial
+    def __init__(self):
+        self.__inteligencia_artificial = "inteligenciaArtificial"
+
 
     @property
     def inteligencia_artificial(self):
