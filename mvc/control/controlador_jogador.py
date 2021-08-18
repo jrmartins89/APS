@@ -1,6 +1,7 @@
 from mvc.model.jogador_humano import JogadorHumano
 from mvc.view.tela_login_jogador import TelaLoginJogador
 from mvc.view.tela_cadastro_jogador import TelaCadastroJogador
+from mvc.view.tela_baralho_segundo_jogador import TelaBaralhoSegundoJogador
 import csv
 import hashlib
 import os
@@ -11,6 +12,7 @@ class ControladorJogador:
         self.__controlador_principal = controlador_principal
         self.__tela_cadastro = TelaCadastroJogador(self)
         self.__tela_login = TelaLoginJogador(self)
+        self.__tela_baralho_segundo_jogador = TelaBaralhoSegundoJogador(self)
         self.__jogadores = []
         self.__idjogador = 0
 
@@ -23,6 +25,12 @@ class ControladorJogador:
             return False
         else:
             return values['apelido']
+
+    def abre_tela_baralho_segundo_jogador(self):
+        button, values = self.__tela_baralho_segundo_jogador.open_tela_baralho_segundo_jogador()
+        if button == 'Voltar':
+            self.__controlador_principal.abre_tela_inicial()
+        return values['baralho']
 
     def abre_tela_cadastro(self):
         button, values = self.__tela_cadastro.open_tela_cadastro()
