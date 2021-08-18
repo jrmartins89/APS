@@ -1,0 +1,1 @@
+from mvc.model.inteligencia_artificial import InteligenciaArtificial
