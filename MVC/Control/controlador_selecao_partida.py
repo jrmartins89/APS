@@ -23,7 +23,7 @@ class ControladorInicioSelecaoPartida:
             jogador_2 = self.__controlador_jogador.abre_tela_login()
             baralho_2 = self.__controlador_jogador.abre_tela_baralho_segundo_jogador()
             self.inicio_partida(jogador_1, values['baralho'], jogador_2, baralho_2)
-        if button == 'Voltar':
+        if button == 'Menu Principal':
             self.__controlador_principal.abre_tela_inicial()
 
     def inicio_partida(self, jogador_1, tipo_baralho_1, jogador_2, tipo_baralho_2):
