@@ -12,6 +12,7 @@ class ControladorInicioSelecaoPartida:
         self.__controlador_inteligencia_artifical = ControladorInteligenciaArtificial(self)
         self.__partida = []
 
+        # função que enviará a chamada para o loop da partida
     def abre_tela_inicio_partida(self, jogador_1):
         button, values = self.__tela_inicio_partida.open_tela_inicio_selecao_partida()
         tipo_oponente = values['oponente']
