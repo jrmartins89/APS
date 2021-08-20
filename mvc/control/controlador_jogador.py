@@ -36,12 +36,12 @@ class ControladorJogador:
         button, values = self.__tela_cadastro.open_tela_cadastro()
         if button == 'Menu Principal':
             self.__controlador_principal.abre_tela_inicial()
-        self.incluir_usuario(values['nome'], values['apelido'], values['senha'])
+        self.incluir_usuario_humano(values['nome'], values['apelido'], values['senha'])
 
     def gerar_id(self):
         return
 
-    def incluir_usuario(self, nome: str, apelido: str, senha: str):
+    def incluir_usuario_humano(self, nome: str, apelido: str, senha: str):
         cabecalho = ['nome', 'apelido', 'senha', 'da_vez', 'vitorias', 'derrotas', 'id_jogador']
         if not apelido or apelido == '*Apelido':
             return self.__tela_cadastro.show_message("Erro", "O apelido não pode estar em branco.")
