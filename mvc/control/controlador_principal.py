@@ -33,7 +33,7 @@ class ControladorPrincipal:
             if button == 'Iniciar uma partida':
                 self.__controlador_selecao_partida.abre_tela_inicio_partida(jogador_1)
             elif button == 'Voltar':
-                self.__tela.open_inicial()
+                self.abre_tela_inicial()
 
     @property
     def controlador_jogador(self):
