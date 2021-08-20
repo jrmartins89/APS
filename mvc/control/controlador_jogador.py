@@ -1,4 +1,5 @@
 from mvc.model.jogador_humano import JogadorHumano
+from mvc.model.jogador_maquina import JogadorMaquina
 from mvc.view.tela_login_jogador import TelaLoginJogador
 from mvc.view.tela_cadastro_jogador import TelaCadastroJogador
 from mvc.view.tela_baralho_segundo_jogador import TelaBaralhoSegundoJogador
@@ -12,6 +13,7 @@ class ControladorJogador:
         self.__controlador_principal = controlador_principal
         self.__tela_cadastro = TelaCadastroJogador(self)
         self.__tela_login = TelaLoginJogador(self)
+        self.__jogador_maquina = None
         self.__tela_baralho_segundo_jogador = TelaBaralhoSegundoJogador(self)
         self.__jogadores = []
         self.__idjogador = 0
@@ -40,6 +42,10 @@ class ControladorJogador:
 
     def gerar_id(self):
         return
+
+    def inlcuir_usuario_maquina(self):
+        self.__jogador_maquina = JogadorMaquina()
+        return self.__jogador_maquina
 
     def incluir_usuario_humano(self, nome: str, apelido: str, senha: str):
         cabecalho = ['nome', 'apelido', 'senha', 'da_vez', 'vitorias', 'derrotas', 'id_jogador']
