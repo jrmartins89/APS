@@ -17,7 +17,7 @@ class ControladorInicioSelecaoPartida:
         button, values = self.__tela_inicio_partida.open_tela_inicio_selecao_partida()
         tipo_oponente = values['oponente']
         if tipo_oponente == 'Computador':
-            jogador_2 = self.__controlador_inteligencia_artifical.criar_inteligencia_artificial()
+            jogador_2 = self.__controlador_jogador.inlcuir_usuario_maquina()
             self.inicio_partida(jogador_1, values['baralho'], jogador_2, 'Grego')
         elif tipo_oponente == 'Humano':
             jogador_2 = self.__controlador_jogador.abre_tela_login()
@@ -29,7 +29,7 @@ class ControladorInicioSelecaoPartida:
     def inicio_partida(self, jogador_1, tipo_baralho_1, jogador_2, tipo_baralho_2):
         self.__partida = Partida(jogador_1, tipo_baralho_1, jogador_2, tipo_baralho_2)
         print('imprimindo da partida')
-        print('primeiro jogador é ' + self.__partida.jogador_1)
-        print('segundo jogador é ' + self.__partida.jogador_2)
-        print('baralho do primeiro jogador é ' + self.__partida.baralho_1)
-        print('baralho do segundo jogador é ' + self.__partida.baralho_2)
+        print('primeiro jogador é ' + self.__partida.jogador_1.apelido)
+        print('segundo jogador é ' + self.__partida.jogador_2.apelido)
+        print('baralho do primeiro jogador é do tipo ' + self.__partida)
+        print('baralho do segundo jogador é do tipo  ' + self.__partida)
