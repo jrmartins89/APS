@@ -25,6 +25,7 @@ class ControladorJogador:
         if button == 'Voltar':
             self.__controlador_principal.abre_tela_inicial()
         if (values['apelido'] == '') and (values['senha'] == ''):
+            self.__tela_login.show_message("Erro", "O Login não pode ficar em branco!")
             return False
         else:
             return values['apelido']
