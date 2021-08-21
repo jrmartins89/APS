@@ -29,7 +29,7 @@ class ControladorInicioSelecaoPartida:
     def inicio_partida(self, jogador_1, tipo_baralho_1, jogador_2, tipo_baralho_2):
         self.__partida = Partida(jogador_1, tipo_baralho_1, jogador_2, tipo_baralho_2)
         print('imprimindo da partida')
-        print('primeiro jogador é ' + self.__partida.jogador_1.apelido)
-        print('segundo jogador é ' + self.__partida.jogador_2.apelido)
+        print('primeiro jogador é ' + self.__partida.jogador_1)
+        print('segundo jogador é ' + self.__partida.jogador_2)
         print('baralho do primeiro jogador é do tipo ' + self.__partida.baralho_1)
         print('baralho do segundo jogador é do tipo  ' + self.__partida.baralho_2)
