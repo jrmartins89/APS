@@ -15,6 +15,9 @@ class ControladorInicioSelecaoPartida:
         # função que enviará a chamada para o loop da partida
     def abre_tela_inicio_partida(self, jogador_1):
         button, values = self.__tela_inicio_partida.open_tela_inicio_selecao_partida()
+        while button == 'OK' and (values['baralho'] == '' and values['oponente'] == ''):
+            self.__tela_inicio_partida.show_message("Erro", "As opções não podem ficar em branco!")
+            button, values = self.__tela_inicio_partida.open_tela_inicio_selecao_partida()
         tipo_oponente = values['oponente']
         if tipo_oponente == 'Computador':
             jogador_2 = self.__controlador_jogador.inlcuir_usuario_maquina()
