@@ -20,7 +20,7 @@ class ControladorInicioSelecaoPartida:
             jogador_2 = self.__controlador_jogador.inlcuir_usuario_maquina()
             self.inicio_partida(jogador_1, values['baralho'], jogador_2, 'Grego')
         elif tipo_oponente == 'Humano':
-            jogador_2 = self.__controlador_jogador.abre_tela_login()
+            jogador_2 = self.__controlador_jogador.abre_tela_login_segundo_jogador()
             baralho_2 = self.__controlador_jogador.abre_tela_baralho_segundo_jogador()
             self.inicio_partida(jogador_1, values['baralho'], jogador_2, baralho_2)
         if button == 'Menu Principal':
