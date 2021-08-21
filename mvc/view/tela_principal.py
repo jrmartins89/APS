@@ -26,6 +26,7 @@ class TelaPrincipal(Tela):
     def init_full_components(self):
         layout_menu_principal = [
             [sG.Text('FÚRIA DOS PANTEÕES', font=('times', 20))],
+            [sG.Text('')],
             [sG.Button('Iniciar uma partida')],
             [sG.Button('Voltar')]
 
