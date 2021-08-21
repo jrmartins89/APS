@@ -16,7 +16,7 @@ class TelaPrincipal(Tela):
             [sG.Text('FÚRIA DOS PANTEÕES', font=('Times', 30))],
             [sG.Text('')],
             [sG.Button('Realizar Login')],
-            [sG.Button('Criar usuário')],
+            [sG.Button('Criar Usuário')],
         ]
         self.__window_inicial = sG.Window('Tela incial - Fúria dos Panteões',
                                           font=('Times', 15),
