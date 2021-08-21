@@ -21,7 +21,10 @@ class ControladorJogador:
 
     def abre_tela_login(self):
         button, values = self.__tela_login.open_tela_login()
-        self.fazer_login(values['apelido'], values['senha'])
+        verifica = self.fazer_login(values['apelido'], values['senha'])
+        while not verifica:
+            button, values = self.__tela_login.open_tela_login()
+            verifica_login = self.fazer_login(values['apelido'], values['senha'])
         if button == 'Voltar':
             self.__controlador_principal.abre_tela_inicial()
         if (values['apelido'] == '') and (values['senha'] == ''):
@@ -36,13 +39,16 @@ class ControladorJogador:
             self.__tela_login_segundo_jogador.show_message("Erro",
                                                            "O segundo jogador não pode ser igual ao primeiro jogador")
             return False
-        self.fazer_login(values['apelido'], values['senha'])
         if button == 'Voltar':
             self.__controlador_principal.abre_tela_inicial()
         if (values['apelido'] == '') and (values['senha'] == ''):
             return False
         else:
+            verifica_login = self.fazer_login(values['apelido'], values['senha'])
+        if verifica_login:
             return values['apelido']
+        else:
+            return False
 
     def abre_tela_baralho_segundo_jogador(self):
         button, values = self.__tela_baralho_segundo_jogador.open_tela_baralho_segundo_jogador()
@@ -114,7 +120,8 @@ class ControladorJogador:
                     break
                 if login_inexistente:
                     self.__tela_login.show_message("ERRO", "Erro de Login!")
-                    break
+                    return False
+            return True
 
     def criar_jogador_humano_memoria(self, jogador_1):
         with open('usuarios.csv', mode='r') as arquivo_csv:
