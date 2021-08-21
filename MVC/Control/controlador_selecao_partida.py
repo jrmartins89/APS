@@ -31,5 +31,5 @@ class ControladorInicioSelecaoPartida:
         print('imprimindo da partida')
         print('primeiro jogador é ' + self.__partida.jogador_1.apelido)
         print('segundo jogador é ' + self.__partida.jogador_2.apelido)
-        print('baralho do primeiro jogador é do tipo ' + self.__partida)
-        print('baralho do segundo jogador é do tipo  ' + self.__partida)
+        print('baralho do primeiro jogador é do tipo ' + self.__partida.baralho_1)
+        print('baralho do segundo jogador é do tipo  ' + self.__partida.baralho_2)

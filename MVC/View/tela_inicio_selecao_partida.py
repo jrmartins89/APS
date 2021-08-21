@@ -12,17 +12,17 @@ class TelaInicioSelecaoPartida(Tela):
 
     def init_components(self):
         layout_inicio_selecao_partida = [
-                                    [sG.Text('Inicio da Partida', font=('Times', 30))],
-                                    [sG.Text('Selecione o oponente', font=('Times', 14))],
+                                    [sG.Text('Início da Partida', font=('Times', 30))],
+                                    [sG.Text('Selecione o seu oponente', font=('Times', 14))],
                                     [sG.Combo(['Humano', 'Computador'], key='oponente')],
-                                    [sG.Text('Selecione o baralho', font=('Times', 14))],
-                                    [sG.Combo(['Nordico', 'Egipcio', 'Grego'], key='baralho')],
+                                    [sG.Text('Selecione o seu tipo de baralho', font=('Times', 14))],
+                                    [sG.Combo(['Nórdico', 'Egípcio', 'Grego'], key='baralho')],
                                     [sG.Text('Confirme a seleção', font=('Times', 14))],
                                     [sG.OK()],
                                     [sG.Button('Menu Principal')]
                                   ]
 
-        self.__window_inicio_selecao_partida = sG.Window('Inicio da Partida',
+        self.__window_inicio_selecao_partida = sG.Window('Início da Partida',
                                                          font=('Times', 15),
                                                          size=(600, 300),
                                                          element_justification='c'
