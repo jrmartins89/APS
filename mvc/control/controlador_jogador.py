@@ -33,7 +33,8 @@ class ControladorJogador:
     def abre_tela_login_segundo_jogador(self, jogador_1):
         button, values = self.__tela_login_segundo_jogador.open_tela_login_segundo_jogador()
         if values['apelido'] == jogador_1:
-            self.__tela_login_segundo_jogador.show_message("Erro", "O segundo jogador não pode ser igual ao primeiro jogador")
+            self.__tela_login_segundo_jogador.show_message("Erro",
+                                                           "O segundo jogador não pode ser igual ao primeiro jogador")
             return False
         self.fazer_login(values['apelido'], values['senha'])
         if button == 'Voltar':
@@ -114,3 +115,12 @@ class ControladorJogador:
                 if login_inexistente:
                     self.__tela_login.show_message("ERRO", "Erro de Login!")
                     break
+
+    def criar_jogador_humano_memoria(self, jogador_1):
+        with open('usuarios.csv', mode='r') as arquivo_csv:
+            leitor_csv = csv.DictReader(arquivo_csv)
+            for jogador in leitor_csv:
+                if jogador_1 == jogador['apelido']:
+                    JogadorHumano(jogador['nome'], jogador['apelido'], jogador['senha'], jogador['da_vez'],
+                                  jogador['vitorias'], jogador['derrotas'], jogador['id_jogador'])
+                    return jogador

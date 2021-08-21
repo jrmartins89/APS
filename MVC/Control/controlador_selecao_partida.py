@@ -32,9 +32,17 @@ class ControladorInicioSelecaoPartida:
             self.__controlador_principal.abre_tela_inicial()
 
     def inicio_partida(self, jogador_1, tipo_baralho_1, jogador_2, tipo_baralho_2):
-        self.__partida = Partida(jogador_1, tipo_baralho_1, jogador_2, tipo_baralho_2)
+        jogador_1_memoria = self.__controlador_jogador.criar_jogador_humano_memoria(jogador_1)
+        if not jogador_2 == 'jogador_maquina':
+            jogador_2_memoria = self.__controlador_jogador.criar_jogador_humano_memoria(jogador_2)
+            self.__partida = Partida(jogador_1_memoria, tipo_baralho_1, jogador_2_memoria, tipo_baralho_2)
+        if jogador_2 == 'jogador_maquina':
+            self.__partida = Partida(jogador_1_memoria, tipo_baralho_1, jogador_2, tipo_baralho_2)
         print('imprimindo da partida')
-        print('primeiro jogador é ' + self.__partida.jogador_1)
-        print('segundo jogador é ' + self.__partida.jogador_2)
+        print('primeiro jogador é ' + self.__partida.jogador_1['apelido'])
+        if jogador_2 == 'jogador_maquina':
+            print('segundo jogador é ' + self.__partida.jogador_2.apelido)
+        else:
+            print('primeiro jogador é ' + self.__partida.jogador_2['apelido'])
         print('baralho do primeiro jogador é do tipo ' + self.__partida.baralho_1)
         print('baralho do segundo jogador é do tipo  ' + self.__partida.baralho_2)
