@@ -14,8 +14,8 @@ class TelaPrincipal(Tela):
     def init_components(self):
         layout_menu_inicial = [
             [sG.Text('FÚRIA DOS PANTEÕES', font=('Times', 30))],
-            [sG.Text('Clique na opção desejada', font=('Times', 20))],
-            [sG.Button('Login')],
+            [sG.Text('')],
+            [sG.Button('Login no Jogo')],
             [sG.Button('Criar usuário')],
         ]
         self.__window_inicial = sG.Window('Tela incial - Fúria dos Panteões',
@@ -26,7 +26,6 @@ class TelaPrincipal(Tela):
     def init_full_components(self):
         layout_menu_principal = [
             [sG.Text('FÚRIA DOS PANTEÕES', font=('times', 20))],
-            [sG.Text('Clique na opção desejada', font=('Times', 14), justification='center')],
             [sG.Button('Iniciar uma partida')],
             [sG.Button('Voltar')]
 
