@@ -21,28 +21,31 @@ class ControladorInicioSelecaoPartida:
         tipo_oponente = values['oponente']
         if tipo_oponente == 'Computador':
             jogador_2 = self.__controlador_jogador.inlcuir_usuario_maquina()
-            self.inicio_partida(jogador_1, values['baralho'], jogador_2, 'Grego')
+            self.inicio_partida_maquina(jogador_1, values['baralho'], jogador_2, 'Grego')
         elif tipo_oponente == 'Humano':
             jogador_2 = self.__controlador_jogador.abre_tela_login_segundo_jogador(jogador_1)
             while not jogador_2:
                 jogador_2 = self.__controlador_jogador.abre_tela_login_segundo_jogador(jogador_1)
             baralho_2 = self.__controlador_jogador.abre_tela_baralho_segundo_jogador()
-            self.inicio_partida(jogador_1, values['baralho'], jogador_2, baralho_2)
+            self.inicio_partida_humano(jogador_1, values['baralho'], jogador_2, baralho_2)
         if button == 'Menu Principal':
             self.__controlador_principal.abre_tela_inicial()
 
-    def inicio_partida(self, jogador_1, tipo_baralho_1, jogador_2, tipo_baralho_2):
+    def inicio_partida_humano(self, jogador_1, tipo_baralho_1, jogador_2, tipo_baralho_2):
         jogador_1_memoria = self.__controlador_jogador.criar_jogador_humano_memoria(jogador_1)
-        if not jogador_2 == 'jogador_maquina':
-            jogador_2_memoria = self.__controlador_jogador.criar_jogador_humano_memoria(jogador_2)
-            self.__partida = Partida(jogador_1_memoria, tipo_baralho_1, jogador_2_memoria, tipo_baralho_2)
-        if jogador_2 == 'jogador_maquina':
-            self.__partida = Partida(jogador_1_memoria, tipo_baralho_1, jogador_2, tipo_baralho_2)
+        jogador_2_memoria = self.__controlador_jogador.criar_jogador_humano_memoria(jogador_2)
+        self.__partida = Partida(jogador_1_memoria, tipo_baralho_1, jogador_2_memoria, tipo_baralho_2)
         print('imprimindo da partida')
         print('primeiro jogador é ' + self.__partida.jogador_1['apelido'])
-        if jogador_2 == 'jogador_maquina':
-            print('segundo jogador é ' + self.__partida.jogador_2.apelido)
-        else:
-            print('primeiro jogador é ' + self.__partida.jogador_2['apelido'])
+        print('segundo jogador é ' + self.__partida.jogador_2['apelido'])
+        print('baralho do primeiro jogador é do tipo ' + self.__partida.baralho_1)
+        print('baralho do segundo jogador é do tipo  ' + self.__partida.baralho_2)
+
+    def inicio_partida_maquina(self, jogador_1, tipo_baralho_1, jogador_2, tipo_baralho_2):
+        jogador_1_memoria = self.__controlador_jogador.criar_jogador_humano_memoria(jogador_1)
+        self.__partida = Partida(jogador_1_memoria, tipo_baralho_1, jogador_2, tipo_baralho_2)
+        print('imprimindo da partida')
+        print('primeiro jogador é ' + self.__partida.jogador_1['apelido'])
+        print('segundo jogador é ' + self.__partida.jogador_2.apelido)
         print('baralho do primeiro jogador é do tipo ' + self.__partida.baralho_1)
         print('baralho do segundo jogador é do tipo  ' + self.__partida.baralho_2)
