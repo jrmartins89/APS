@@ -30,7 +30,7 @@ class ControladorJogador:
             return values['apelido']
 
     def abre_tela_login_segundo_jogador(self):
-        button, values = self.__tela_login_segundo_jogador.open_tela_login()
+        button, values = self.__tela_login_segundo_jogador.open_tela_login_segundo_jogador()
         self.fazer_login(values['apelido'], values['senha'])
         if button == 'Voltar':
             self.__controlador_principal.abre_tela_inicial()

@@ -35,6 +35,12 @@ class TelaLoginJogador(Tela):
         self.close()
         return button, values
 
+    def open_tela_login_segundo_jogador(self):
+        self.init_components()
+        button, values = self.__window_login.Read()
+        self.close()
+        return button, values
+
     def show_message(self, titulo: str, mensagem: str):
         sG.Popup(titulo, mensagem)
         self.close()
