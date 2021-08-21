@@ -12,15 +12,15 @@ class TelaBaralhoSegundoJogador(Tela):
 
     def init_components(self):
         layout_baralho_segundo_jogador = [
-            [sG.Text('Inicio da Partida', font=('Times', 30))],
-            [sG.Text('Selecione o baralho', font=('Times', 14))],
-            [sG.Combo(['Nordico', 'Egipcio', 'Grego'], default_value='Grego', key='baralho')],
+            [sG.Text('Início da Partida - Segundo Jogador', font=('Times', 30))],
+            [sG.Text('Selecione o seu tipo de baralho', font=('Times', 14))],
+            [sG.Combo(['Nórdico', 'Egípcio', 'Grego'], default_value='Grego', key='baralho')],
             [sG.Text('Confirme a seleção', font=('Times', 14))],
             [sG.OK()],
             [sG.Button('Voltar')]
         ]
 
-        self.__window_baralho_segundo_jogador = sG.Window('Inicio da Partida',
+        self.__window_baralho_segundo_jogador = sG.Window('Início da Partida',
                                                           font=('Times', 15),
                                                           size=(600, 300),
                                                           element_justification='c'
