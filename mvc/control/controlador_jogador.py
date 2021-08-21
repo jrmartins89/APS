@@ -13,6 +13,7 @@ class ControladorJogador:
         self.__controlador_principal = controlador_principal
         self.__tela_cadastro = TelaCadastroJogador(self)
         self.__tela_login = TelaLoginJogador(self)
+        self.__tela_login_segundo_jogador = TelaLoginJogador(self)
         self.__jogador_maquina = None
         self.__tela_baralho_segundo_jogador = TelaBaralhoSegundoJogador(self)
         self.__jogadores = []
@@ -29,7 +30,7 @@ class ControladorJogador:
             return values['apelido']
 
     def abre_tela_login_segundo_jogador(self):
-        button, values = self.__tela_login.open_tela_login()
+        button, values = self.__tela_login_segundo_jogador.open_tela_login()
         self.fazer_login(values['apelido'], values['senha'])
         if button == 'Voltar':
             self.__controlador_principal.abre_tela_inicial()
