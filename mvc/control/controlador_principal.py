@@ -30,13 +30,13 @@ class ControladorPrincipal:
                 break
 
     def abre_tela_principal(self, jogador_1):
-            button, values = self.__tela.open_principal()
-            if button == 'Iniciar uma partida':
-                self.__controlador_selecao_partida.abre_tela_inicio_partida(jogador_1)
-            elif button == 'Voltar':
-                self.abre_tela_inicial()
-            elif button == 'Sair':
-                exit(0)
+        button, values = self.__tela.open_principal()
+        if button == 'Iniciar uma partida':
+            self.__controlador_selecao_partida.abre_tela_inicio_partida(jogador_1)
+        elif button == 'Voltar':
+            self.abre_tela_inicial()
+        elif button == 'Sair':
+            exit(0)
 
     @property
     def controlador_jogador(self):
