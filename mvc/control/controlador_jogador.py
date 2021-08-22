@@ -21,8 +21,8 @@ class ControladorJogador:
 
     def abre_tela_login(self):
         button, values = self.__tela_login.open_tela_login()
-        verifica = self.fazer_login(values['apelido'], values['senha'])
-        while not verifica:
+        verifica_login = self.fazer_login(values['apelido'], values['senha'])
+        while not verifica_login:
             button, values = self.__tela_login.open_tela_login()
             verifica_login = self.fazer_login(values['apelido'], values['senha'])
         if button == 'Voltar':

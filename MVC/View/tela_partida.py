@@ -22,7 +22,7 @@ class TelaPartida(Tela):
             [sG.Button('Iniciar Partida')]
         ]
         self.__window_confirmacao_partida_maquina = sG.Window('Tela incial - Fúria dos Panteões',
-                                                              font=('Times', 15),
+                                                               font=('Times', 15),
                                                               size=(500, 250),
                                                               element_justification='c').layout(
             layout_confirmacao_partida_maquina)
