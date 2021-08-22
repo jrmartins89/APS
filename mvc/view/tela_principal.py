@@ -29,12 +29,13 @@ class TelaPrincipal(Tela):
             [sG.Text('FÚRIA DOS PANTEÕES', font=('times', 20))],
             [sG.Text('')],
             [sG.Button('Iniciar uma partida')],
-            [sG.Button('Voltar')]
+            [sG.Button('Voltar')],
+            [sG.Quit('Sair')]
 
         ]
         self.__window_principal = sG.Window('Tela principal - Fúria dos Panteões',
                                             font=('Times', 15),
-                                            size=(400, 180),
+                                            size=(400, 250),
                                             element_justification='c'
                                             ).layout(layout_menu_principal)
 
