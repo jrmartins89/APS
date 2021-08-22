@@ -2,6 +2,7 @@ from mvc.view.tela_inicio_selecao_partida import TelaInicioSelecaoPartida
 from mvc.control.controlador_jogador import ControladorJogador
 from mvc.model.partida import Partida
 from mvc.control.controlador_inteligencia_artificial import ControladorInteligenciaArtificial
+from mvc.control.controlador_partida import ControladorPartida
 
 
 class ControladorInicioSelecaoPartida:
@@ -10,6 +11,7 @@ class ControladorInicioSelecaoPartida:
         self.__tela_inicio_partida = TelaInicioSelecaoPartida(self)
         self.__controlador_jogador = ControladorJogador(self)
         self.__controlador_inteligencia_artifical = ControladorInteligenciaArtificial(self)
+        self.__controlador_partida = ControladorPartida()
         self.__partida = []
 
         # função que enviará a chamada para o loop da partida
@@ -36,6 +38,7 @@ class ControladorInicioSelecaoPartida:
         jogador_1_memoria = self.__controlador_jogador.criar_jogador_humano_memoria(jogador_1)
         jogador_2_memoria = self.__controlador_jogador.criar_jogador_humano_memoria(jogador_2)
         self.__partida = Partida(jogador_1_memoria, tipo_baralho_1, jogador_2_memoria, tipo_baralho_2)
+        self.__controlador_partida.abre_tela_confirmacao_partida_humano(self.__partida)
         print('imprimindo da partida')
         print('primeiro jogador é ' + self.__partida.jogador_1['apelido'])
         print('segundo jogador é ' + self.__partida.jogador_2['apelido'])
@@ -45,6 +48,7 @@ class ControladorInicioSelecaoPartida:
     def inicio_partida_maquina(self, jogador_1, tipo_baralho_1, jogador_2, tipo_baralho_2):
         jogador_1_memoria = self.__controlador_jogador.criar_jogador_humano_memoria(jogador_1)
         self.__partida = Partida(jogador_1_memoria, tipo_baralho_1, jogador_2, tipo_baralho_2)
+        self.__controlador_partida.abre_tela_confirmacao_partida_maquina(self.__partida)
         print('imprimindo da partida')
         print('primeiro jogador é ' + self.__partida.jogador_1['apelido'])
         print('segundo jogador é ' + self.__partida.jogador_2.apelido)
