@@ -17,10 +17,11 @@ class TelaPrincipal(Tela):
             [sG.Text('')],
             [sG.Button('Realizar Login')],
             [sG.Button('Criar Usuário')],
+            [sG.Quit('Sair')]
         ]
         self.__window_inicial = sG.Window('Tela incial - Fúria dos Panteões',
                                           font=('Times', 15),
-                                          size=(500, 200),
+                                          size=(500, 250),
                                           element_justification='c').layout(layout_menu_inicial)
 
     def init_full_components(self):

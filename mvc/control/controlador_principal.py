@@ -26,6 +26,8 @@ class ControladorPrincipal:
                 jogador_1 = self.__controlador_jogador.abre_tela_login()
                 if jogador_1:
                     self.abre_tela_principal(jogador_1)
+            elif button == 'Sair':
+                break
 
     def abre_tela_principal(self, jogador_1):
         while True:
