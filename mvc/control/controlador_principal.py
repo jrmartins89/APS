@@ -37,7 +37,7 @@ class ControladorPrincipal:
             elif button == 'Voltar':
                 self.abre_tela_inicial()
             elif button == 'Sair':
-                exit(1)
+                exit(0)
 
     @property
     def controlador_jogador(self):
