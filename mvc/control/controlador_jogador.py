@@ -42,6 +42,8 @@ class ControladorJogador:
         if button == 'Voltar':
             self.__controlador_principal.abre_tela_inicial()
         if (values['apelido'] == '') and (values['senha'] == ''):
+            self.__tela_login_segundo_jogador.show_message("Erro",
+                                                           "O login não pode estar em branco!")
             return False
         else:
             verifica_login = self.fazer_login(values['apelido'], values['senha'])
