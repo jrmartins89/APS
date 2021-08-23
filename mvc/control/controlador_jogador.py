@@ -52,8 +52,6 @@ class ControladorJogador:
 
     def abre_tela_baralho_segundo_jogador(self):
         button, values = self.__tela_baralho_segundo_jogador.open_tela_baralho_segundo_jogador()
-        if button == 'Voltar':
-            self.__controlador_principal.abre_tela_inicial()
         return values['baralho']
 
     def abre_tela_cadastro(self):
