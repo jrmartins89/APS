@@ -39,8 +39,6 @@ class ControladorJogador:
             self.__tela_login_segundo_jogador.show_message("Erro",
                                                            "O segundo jogador não pode ser igual ao primeiro jogador")
             return False
-        if button == 'Voltar':
-            self.__controlador_principal.abre_tela_inicial()
         if (values['apelido'] == '') and (values['senha'] == ''):
             self.__tela_login_segundo_jogador.show_message("Erro",
                                                            "O login não pode estar em branco!")

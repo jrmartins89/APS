@@ -36,7 +36,6 @@ class TelaLoginJogador(Tela):
                                     [sG.Text('*Senha', font=('Times', 14))],
                                     [sG.InputText('', key='senha')],
                                     [sG.OK()],
-                                    [sG.Button('Voltar')]
                                ]
 
         self.__window_login_segundo_jogador = sG.Window('Login no Jogo',
