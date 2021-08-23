@@ -9,6 +9,7 @@ class TelaPartida(Tela):
         self.controlador_principal = controlador_partida
         self.__window_confirmacao_partida_maquina = None
         self.__window_confirmacao_partida_humano = None
+        self.__window_jogo = None
         self.__hide = False
         self.__partida = None
 
@@ -19,10 +20,10 @@ class TelaPartida(Tela):
             [sG.Text('O segundo jogador é ' + self.__partida.jogador_2.apelido)],
             [sG.Text('O baralho do primeiro jogador é ' + self.__partida.baralho_1)],
             [sG.Text('O baralho do segundo jogador é ' + self.__partida.baralho_2)],
-            [sG.Button('Iniciar Partida')]
+            [sG.Button('Jogar!')]
         ]
         self.__window_confirmacao_partida_maquina = sG.Window('Tela incial - Fúria dos Panteões',
-                                                               font=('Times', 15),
+                                                              font=('Times', 15),
                                                               size=(500, 250),
                                                               element_justification='c').layout(
             layout_confirmacao_partida_maquina)
@@ -42,6 +43,17 @@ class TelaPartida(Tela):
                                                              element_justification='c').layout(
             layout_confirmacao_partida_humano)
 
+    def init_jogo(self):
+        layout_jogo = [
+            [sG.Text('JOGO', font=('Times', 30))]
+
+        ]
+        self.__window_jogo = sG.Window('Jogo',
+                                       font=('Times', 15),
+                                       size=(500, 250),
+                                       element_justification='c').layout(
+            layout_jogo)
+
     def open_confirmacao_partida_maquina(self, partida):
         self.__partida = partida
         self.init_components_maquina()
@@ -56,8 +68,17 @@ class TelaPartida(Tela):
         self.close_confirmacao_partida_humano()
         return button, values
 
+    def open_jogo(self, partida):
+        self.init_jogo()
+        button, values = self.__window_jogo.Read()
+        self.close_jogo()
+        return button, values
+
     def close_confirmacao_partida_humano(self):
         self.__window_confirmacao_partida_humano.close()
+
+    def close_jogo(self):
+        self.__window_jogo.close()
 
     def close_confirmacao_partida_maquina(self):
         self.__window_confirmacao_partida_maquina.close()
