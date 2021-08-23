@@ -35,7 +35,7 @@ class TelaPartida(Tela):
             [sG.Text('O segundo jogador é ' + self.__partida.jogador_2['apelido'])],
             [sG.Text('O baralho do primeiro jogador é do tipo ' + self.__partida.baralho_1)],
             [sG.Text('O baralho do segundo jogador é do tipo ' + self.__partida.baralho_2)],
-            [sG.Button('Iniciar Partida')]
+            [sG.Button('Jogar!')]
         ]
         self.__window_confirmacao_partida_humano = sG.Window('Tela incial - Fúria dos Panteões',
                                                              font=('Times', 15),
