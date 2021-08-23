@@ -10,37 +10,37 @@ import os
 
 class ControladorJogador:
     def __init__(self, controlador_principal):
-        self.__controlador_principal = controlador_principal
-        self.__tela_cadastro = TelaCadastroJogador(self)
-        self.__tela_login = TelaLoginJogador(self)
-        self.__tela_login_segundo_jogador = TelaLoginJogador(self)
-        self.__jogador_maquina = None
-        self.__tela_baralho_segundo_jogador = TelaBaralhoSegundoJogador(self)
-        self.__jogadores = []
-        self.__idjogador = 0
+        self._controlador_principal = controlador_principal
+        self._tela_cadastro = TelaCadastroJogador(self)
+        self._tela_login = TelaLoginJogador(self)
+        self._tela_login_segundo_jogador = TelaLoginJogador(self)
+        self._jogador_maquina = None
+        self._tela_baralho_segundo_jogador = TelaBaralhoSegundoJogador(self)
+        self._jogadores = []
+        self._idjogador = 0
 
     def abre_tela_login(self):
-        button, values = self.__tela_login.open_tela_login()
+        button, values = self._tela_login.open_tela_login()
         verifica_login = self.fazer_login(values['apelido'], values['senha'])
         while not verifica_login:
-            button, values = self.__tela_login.open_tela_login()
+            button, values = self._tela_login.open_tela_login()
             verifica_login = self.fazer_login(values['apelido'], values['senha'])
         if button == 'Voltar':
-            self.__controlador_principal.abre_tela_inicial()
+            self._controlador_principal.abre_tela_inicial()
         if (values['apelido'] == '') and (values['senha'] == ''):
-            self.__tela_login.show_message("Erro", "O Login não pode ficar em branco!")
+            self._tela_login.show_message("Erro", "O Login não pode ficar em branco!")
             return False
         else:
             return values['apelido']
 
     def abre_tela_login_segundo_jogador(self, jogador_1):
-        button, values = self.__tela_login_segundo_jogador.open_tela_login_segundo_jogador()
+        button, values = self._tela_login_segundo_jogador.open_tela_login_segundo_jogador()
         if values['apelido'] == jogador_1:
-            self.__tela_login_segundo_jogador.show_message("Erro",
+            self._tela_login_segundo_jogador.show_message("Erro",
                                                            "O segundo jogador não pode ser igual ao primeiro jogador")
             return False
         if (values['apelido'] == '') and (values['senha'] == ''):
-            self.__tela_login_segundo_jogador.show_message("Erro",
+            self._tela_login_segundo_jogador.show_message("Erro",
                                                            "O login não pode estar em branco!")
             return False
         else:
@@ -51,39 +51,39 @@ class ControladorJogador:
             return False
 
     def abre_tela_baralho_segundo_jogador(self):
-        button, values = self.__tela_baralho_segundo_jogador.open_tela_baralho_segundo_jogador()
+        button, values = self._tela_baralho_segundo_jogador.open_tela_baralho_segundo_jogador()
         return values['baralho']
 
     def abre_tela_cadastro(self):
-        button, values = self.__tela_cadastro.open_tela_cadastro()
+        button, values = self._tela_cadastro.open_tela_cadastro()
         if button == 'Menu Principal':
-            self.__controlador_principal.abre_tela_inicial()
+            self._controlador_principal.abre_tela_inicial()
         self.incluir_usuario_humano(values['nome'], values['apelido'], values['senha'])
 
     def gerar_id(self):
         return
 
     def inlcuir_usuario_maquina(self):
-        self.__jogador_maquina = JogadorMaquina()
-        return self.__jogador_maquina
+        self._jogador_maquina = JogadorMaquina()
+        return self._jogador_maquina
 
     def incluir_usuario_humano(self, nome: str, apelido: str, senha: str):
         cabecalho = ['nome', 'apelido', 'senha', 'da_vez', 'vitorias', 'derrotas', 'id_jogador']
         if not apelido or apelido == '*Apelido':
-            return self.__tela_cadastro.show_message("Erro", "O apelido não pode estar em branco.")
+            return self._tela_cadastro.show_message("Erro", "O apelido não pode estar em branco.")
         if not senha or senha == '*Senha':
-            return self.__tela_cadastro.show_message("Erro", "A senha não pode estar em branco.")
+            return self._tela_cadastro.show_message("Erro", "A senha não pode estar em branco.")
 
         try:
-            for jogador in self.__jogadores:
+            for jogador in self._jogadores:
                 if jogador.apelido == apelido:
                     raise Exception()
         except Exception:
-            return self.__tela_cadastro.show_message("Usuários", "Usuário já cadastrado.")
-        self.__idjogador = self.__idjogador + 1
-        self.__jogadores.append(JogadorHumano(nome, apelido, senha, False, 0, 0, self.__idjogador))
+            return self._tela_cadastro.show_message("Usuários", "Usuário já cadastrado.")
+        self._idjogador = self._idjogador + 1
+        self._jogadores.append(JogadorHumano(nome, apelido, senha, False, 0, 0, self._idjogador))
         with open('usuarios.csv', 'a', encoding='UTF-8', newline='') as f:
-            for jogador in self.__jogadores:
+            for jogador in self._jogadores:
                 if len(jogador.senha) == 32:
                     continue
                 hash_senha = jogador.senha.encode(encoding='UTF-8', errors='strict')
@@ -92,7 +92,7 @@ class ControladorJogador:
             writer = csv.writer(f)
             if os.stat('usuarios.csv').st_size == 0:
                 writer.writerow(cabecalho)
-            for jogador in self.__jogadores:
+            for jogador in self._jogadores:
                 writer.writerow([
                     jogador.nome,
                     jogador.apelido,
@@ -101,7 +101,7 @@ class ControladorJogador:
                     jogador.vitorias,
                     jogador.derrotas,
                     jogador.id_jogador])
-        self.__tela_cadastro.show_message("CADASTRO DE USUÁRIO", "Usuário cadastrado com sucesso!")
+        self._tela_cadastro.show_message("CADASTRO DE USUÁRIO", "Usuário cadastrado com sucesso!")
 
     def fazer_login(self, apelido: str, senha: str):
         login_inexistente = True
@@ -112,12 +112,12 @@ class ControladorJogador:
             while login_inexistente:
                 for linha in leitor_csv:
                     if (linha['apelido'] == apelido) and (linha['senha'] == senha_fornecida):
-                        self.__tela_login.show_message("SUCESSO!", apelido + " logado!")
+                        self._tela_login.show_message("SUCESSO!", apelido + " logado!")
                         login_inexistente = False
                 if apelido == '':
                     break
                 if login_inexistente:
-                    self.__tela_login.show_message("ERRO", "Erro de Login!")
+                    self._tela_login.show_message("ERRO", "Erro de Login!")
                     return False
             return True
 

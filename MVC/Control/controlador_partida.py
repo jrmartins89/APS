@@ -4,18 +4,18 @@ from mvc.view.tela_partida import TelaPartida
 
 class ControladorPartida:
     def __init__(self):
-        self.__tela_partida = TelaPartida(self)
-        self.__controlador_jogador = ControladorJogador(self)
-        self.__partida = None
+        self._tela_partida = TelaPartida(self)
+        self._controlador_jogador = ControladorJogador(self)
+        self._partida = None
 
     def abre_tela_confirmacao_partida_humano(self, partida):
-        self.__partida = partida
-        button, values = self.__tela_partida.open_confirmacao_partida_humano(self.__partida)
+        self._partida = partida
+        button, values = self._tela_partida.open_confirmacao_partida_humano(self._partida)
         if button == 'Jogar!':
-            self.__tela_partida.open_jogo(self.__partida)
+            self._tela_partida.open_jogo(self._partida)
 
     def abre_tela_confirmacao_partida_maquina(self, partida):
-        self.__partida = partida
-        button, values = self.__tela_partida.open_confirmacao_partida_maquina(self.__partida)
+        self._partida = partida
+        button, values = self._tela_partida.open_confirmacao_partida_maquina(self._partida)
         if button == 'Jogar!':
-            self.__tela_partida.open_jogo(self.__partida)
+            self._tela_partida.open_jogo(self._partida)

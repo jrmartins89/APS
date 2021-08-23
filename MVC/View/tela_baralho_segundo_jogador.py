@@ -6,9 +6,9 @@ sG.theme('DarkAmber')
 
 class TelaBaralhoSegundoJogador(Tela):
     def __init__(self, controlador_jogador):
-        self.__controlador_jogador = controlador_jogador
-        self.__window_baralho_segundo_jogador = None
-        self.__hide = False
+        self._controlador_jogador = controlador_jogador
+        self._window_baralho_segundo_jogador = None
+        self._hide = False
 
     def init_components(self):
         layout_baralho_segundo_jogador = [
@@ -20,18 +20,18 @@ class TelaBaralhoSegundoJogador(Tela):
             [sG.Button('Voltar')]
         ]
 
-        self.__window_baralho_segundo_jogador = sG.Window('Início da Partida',
-                                                          font=('Times', 15),
-                                                          size=(600, 300),
-                                                          element_justification='c'
-                                                          ).Layout(layout_baralho_segundo_jogador)
+        self._window_baralho_segundo_jogador = sG.Window('Início da Partida',
+                                                         font=('Times', 15),
+                                                         size=(600, 300),
+                                                         element_justification='c'
+                                                         ).Layout(layout_baralho_segundo_jogador)
 
     def close(self):
-        self.__window_baralho_segundo_jogador.close()
+        self._window_baralho_segundo_jogador.close()
 
     def open_tela_baralho_segundo_jogador(self):
         self.init_components()
-        button, values = self.__window_baralho_segundo_jogador.read()
+        button, values = self._window_baralho_segundo_jogador.read()
         self.close()
         return button, values
 

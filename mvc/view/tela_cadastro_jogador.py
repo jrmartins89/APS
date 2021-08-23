@@ -6,8 +6,8 @@ sG.theme('DarkAmber')
 
 class TelaCadastroJogador(Tela):
     def __init__(self, controlador_jogador):
-        self.__controlador_jogador = controlador_jogador
-        self.__window_cadastro = None
+        self._controlador_jogador = controlador_jogador
+        self._window_cadastro = None
 
     def init_components(self):
         layout_cadastro_jogador = [
@@ -22,18 +22,18 @@ class TelaCadastroJogador(Tela):
                                     [sG.Button('Menu Principal')]
                                   ]
 
-        self.__window_cadastro = sG.Window('Cadastro de Jogador',
-                                           font=('Times', 15),
-                                           size=(600, 350),
-                                           element_justification='c'
-                                           ).Layout(layout_cadastro_jogador)
+        self._window_cadastro = sG.Window('Cadastro de Jogador',
+                                          font=('Times', 15),
+                                          size=(600, 350),
+                                          element_justification='c'
+                                          ).Layout(layout_cadastro_jogador)
 
     def close(self):
-        self.__window_cadastro.Close()
+        self._window_cadastro.Close()
 
     def open_tela_cadastro(self):
         self.init_components()
-        button, values = self.__window_cadastro.Read()
+        button, values = self._window_cadastro.Read()
         self.close()
         return button, values
 

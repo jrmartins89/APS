@@ -7,10 +7,10 @@ from mvc.control.controlador_selecao_partida import ControladorInicioSelecaoPart
 class ControladorPrincipal:
 
     def __init__(self):
-        self.__tela = TelaPrincipal(self)
-        self.__tela_inicio_partida = TelaInicioSelecaoPartida(self)
-        self.__controlador_jogador = ControladorJogador(self)
-        self.__controlador_selecao_partida = ControladorInicioSelecaoPartida(self)
+        self._tela = TelaPrincipal(self)
+        self._tela_inicio_partida = TelaInicioSelecaoPartida(self)
+        self._controlador_jogador = ControladorJogador(self)
+        self._controlador_selecao_partida = ControladorInicioSelecaoPartida(self)
 
     # para chamar a tela de jogadores é necessário pensar que o controlador da
     # biblioteca conhece o controlador de usuários.
@@ -19,20 +19,20 @@ class ControladorPrincipal:
 
     def abre_tela_inicial(self):
         while True:
-            button, values = self.__tela.open_inicial()
+            button, values = self._tela.open_inicial()
             if button == 'Criar Usuário':
-                self.__controlador_jogador.abre_tela_cadastro()
+                self._controlador_jogador.abre_tela_cadastro()
             elif button == 'Realizar Login':
-                jogador_1 = self.__controlador_jogador.abre_tela_login()
+                jogador_1 = self._controlador_jogador.abre_tela_login()
                 if jogador_1:
                     self.abre_tela_principal(jogador_1)
             elif button == 'Sair':
                 break
 
     def abre_tela_principal(self, jogador_1):
-        button, values = self.__tela.open_principal()
+        button, values = self._tela.open_principal()
         if button == 'Iniciar uma partida':
-            self.__controlador_selecao_partida.abre_tela_inicio_partida(jogador_1)
+            self._controlador_selecao_partida.abre_tela_inicio_partida(jogador_1)
         elif button == 'Voltar':
             self.abre_tela_inicial()
         elif button == 'Sair':
@@ -40,4 +40,4 @@ class ControladorPrincipal:
 
     @property
     def controlador_jogador(self):
-        return self.__controlador_jogador
+        return self._controlador_jogador
