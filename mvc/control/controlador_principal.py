@@ -2,6 +2,7 @@ from mvc.view.tela_principal import TelaPrincipal
 from mvc.view.tela_inicio_selecao_partida import TelaInicioSelecaoPartida
 from mvc.control.controlador_jogador import ControladorJogador
 from mvc.control.controlador_selecao_partida import ControladorInicioSelecaoPartida
+# from mvc.view.jogoloop import *
 
 
 class ControladorPrincipal:
@@ -11,7 +12,7 @@ class ControladorPrincipal:
         self._tela_inicio_partida = TelaInicioSelecaoPartida(self)
         self._controlador_jogador = ControladorJogador(self)
         self._controlador_selecao_partida = ControladorInicioSelecaoPartida(self)
-
+        #self._jogo = JogoLoop(Self)
     # para chamar a tela de jogadores é necessário pensar que o controlador da
     # biblioteca conhece o controlador de usuários.
 

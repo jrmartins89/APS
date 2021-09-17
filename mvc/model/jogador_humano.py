@@ -10,6 +10,7 @@ class JogadorHumano(Jogador):
         self._vitorias = vitorias
         self._derrotas = derrotas
         self._id_jogador = id_jogador
+        self._baralho = None
 
     @property
     def nome(self):
