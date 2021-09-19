@@ -34,7 +34,7 @@ class ControladorPrincipal:
         elif button == 'Voltar':
             self.abre_tela_inicial()
         elif button == 'Acessar o Ranking':
-            jogadores = self._controlador_jogador.listar_jogadores_ordenados()
+            self._controlador_jogador.listar_jogadores_ordenados()
             self._tela_ranking.open_ranking()
         elif button == 'Sair':
             exit(0)
