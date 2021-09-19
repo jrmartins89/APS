@@ -15,20 +15,18 @@ class TelaRanking(Tela):
     def init_components(self):
         layout_ranking = [
             [sG.Text('RANKING', font=('Times', 30))],
-            [sG.Text('Nome'), sG.Text('Vitorias'), sG.Text('derrotas')],
-            [sG.Text(self._jogadores[0]['nome']), sG.Text(self._jogadores[0]['vitorias']), sG.Text(self._jogadores[0]['derrotas'])],
-            [sG.Text('')],
+            [sG.Text(self._jogadores.to_string(index=False))],
             [sG.Quit('Sair')]
         ]
         self._window_ranking = sG.Window('Tela Ranking - Fúria dos Panteões',
                                          font=('Times', 15),
-                                         size=(500, 250),
+                                         size=(500, 350),
                                          element_justification='c').layout(layout_ranking)
 
     def open_ranking(self):
         col_list = ["apelido", "vitorias", "derrotas"]
-        df = pd.read_csv("usuarios.csv", usecols=col_list)
-        print(df)
+        self._jogadores = pd.read_csv("usuarios.csv", usecols=col_list)
+        print(self._jogadores.to_string(index=False))
         self.init_components()
         button, values = self._window_ranking.read()
         self.close_ranking()
