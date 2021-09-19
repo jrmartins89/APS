@@ -134,6 +134,6 @@ class ControladorJogador:
 
     def listar_jogadores_ordenados(self):
         df = pd.read_csv("C:/Users/Jose Ribamar/Desktop/ufsc/APS/Furia dos panteoes/usuarios.csv")
-        sorted_df = df.sort_values(by=["vitorias"], ascending=False)
+        sorted_df = df.sort_values(["vitorias", "derrotas"], ascending=[False,True])
         sorted_df.to_csv('usuarios.csv', index=False)
         return df
