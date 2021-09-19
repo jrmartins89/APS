@@ -1,22 +1,19 @@
 from mvc.view.tela_principal import TelaPrincipal
 from mvc.view.tela_inicio_selecao_partida import TelaInicioSelecaoPartida
+from mvc.view.tela_ranking import TelaRanking
 from mvc.control.controlador_jogador import ControladorJogador
 from mvc.control.controlador_selecao_partida import ControladorInicioSelecaoPartida
-# from mvc.view.jogoloop import *
+from pandas import *
 
 
 class ControladorPrincipal:
 
     def __init__(self):
         self._tela = TelaPrincipal(self)
+        self._tela_ranking = TelaRanking(self)
         self._tela_inicio_partida = TelaInicioSelecaoPartida(self)
         self._controlador_jogador = ControladorJogador(self)
         self._controlador_selecao_partida = ControladorInicioSelecaoPartida(self)
-        #self._jogo = JogoLoop(Self)
-    # para chamar a tela de jogadores é necessário pensar que o controlador da
-    # biblioteca conhece o controlador de usuários.
-
-    # criando um laço de repeticao
 
     def abre_tela_inicial(self):
         while True:
@@ -36,6 +33,9 @@ class ControladorPrincipal:
             self._controlador_selecao_partida.abre_tela_inicio_partida(jogador_1)
         elif button == 'Voltar':
             self.abre_tela_inicial()
+        elif button == 'Acessar o Ranking':
+            jogadores = self._controlador_jogador.listar_jogadores_ordenados()
+            self._tela_ranking.open_ranking()
         elif button == 'Sair':
             exit(0)
 

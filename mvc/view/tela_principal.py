@@ -29,6 +29,7 @@ class TelaPrincipal(Tela):
             [sG.Text('FÚRIA DOS PANTEÕES', font=('times', 20))],
             [sG.Text('')],
             [sG.Button('Iniciar uma partida')],
+            [sG.Button('Acessar o Ranking')],
             [sG.Button('Voltar')],
             [sG.Quit('Sair')]
 

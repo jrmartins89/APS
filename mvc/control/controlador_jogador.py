@@ -4,6 +4,7 @@ from mvc.view.tela_login_jogador import TelaLoginJogador
 from mvc.view.tela_cadastro_jogador import TelaCadastroJogador
 from mvc.view.tela_baralho_segundo_jogador import TelaBaralhoSegundoJogador
 import csv
+import pandas as pd
 import hashlib
 import os
 
@@ -17,6 +18,7 @@ class ControladorJogador:
         self._jogador_maquina = None
         self._tela_baralho_segundo_jogador = TelaBaralhoSegundoJogador(self)
         self._jogadores = []
+        self._lista_jogadores = {}
         self._idjogador = 0
 
     def abre_tela_login(self):
@@ -129,3 +131,9 @@ class ControladorJogador:
                     JogadorHumano(jogador['nome'], jogador['apelido'], jogador['senha'], jogador['da_vez'],
                                   jogador['vitorias'], jogador['derrotas'], jogador['id_jogador'])
                     return jogador
+
+    def listar_jogadores_ordenados(self):
+        df = pd.read_csv("C:/Users/Jose Ribamar/Desktop/ufsc/APS/Furia dos panteoes/usuarios.csv")
+        sorted_df = df.sort_values(by=["vitorias"], ascending=False)
+        sorted_df.to_csv('usuarios.csv', index=False)
+        return df
